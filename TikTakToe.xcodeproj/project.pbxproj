@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		840E00411C9B049200A1437B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E00401C9B049200A1437B /* main.swift */; };
+		841D79EE1C9B2F6200A1437B /* UserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D79EA1C9B2F6200A1437B /* UserInterface.swift */; };
+		841D79EF1C9B2F6200A1437B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D79EB1C9B2F6200A1437B /* main.swift */; };
+		841D79F01C9B2F6200A1437B /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D79EC1C9B2F6200A1437B /* Search.swift */; };
+		841D79F11C9B2F6200A1437B /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D79ED1C9B2F6200A1437B /* State.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +27,10 @@
 
 /* Begin PBXFileReference section */
 		840E003D1C9B049200A1437B /* TikTakToe */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TikTakToe; sourceTree = BUILT_PRODUCTS_DIR; };
-		840E00401C9B049200A1437B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		841D79EA1C9B2F6200A1437B /* UserInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInterface.swift; path = Source/TikTakToe/UserInterface.swift; sourceTree = SOURCE_ROOT; };
+		841D79EB1C9B2F6200A1437B /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = Source/TikTakToe/main.swift; sourceTree = SOURCE_ROOT; };
+		841D79EC1C9B2F6200A1437B /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Search.swift; path = Source/TikTakToe/Search.swift; sourceTree = SOURCE_ROOT; };
+		841D79ED1C9B2F6200A1437B /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = State.swift; path = Source/TikTakToe/State.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +63,10 @@
 		840E003F1C9B049200A1437B /* TikTakToe */ = {
 			isa = PBXGroup;
 			children = (
-				840E00401C9B049200A1437B /* main.swift */,
+				841D79EA1C9B2F6200A1437B /* UserInterface.swift */,
+				841D79EB1C9B2F6200A1437B /* main.swift */,
+				841D79EC1C9B2F6200A1437B /* Search.swift */,
+				841D79ED1C9B2F6200A1437B /* State.swift */,
 			);
 			path = TikTakToe;
 			sourceTree = "<group>";
@@ -119,7 +128,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				840E00411C9B049200A1437B /* main.swift in Sources */,
+				841D79F01C9B2F6200A1437B /* Search.swift in Sources */,
+				841D79EF1C9B2F6200A1437B /* main.swift in Sources */,
+				841D79EE1C9B2F6200A1437B /* UserInterface.swift in Sources */,
+				841D79F11C9B2F6200A1437B /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,13 +223,18 @@
 		840E00451C9B049200A1437B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		840E00461C9B049200A1437B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -241,6 +258,7 @@
 				840E00461C9B049200A1437B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
