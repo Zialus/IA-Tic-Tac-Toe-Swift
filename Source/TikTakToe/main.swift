@@ -14,15 +14,26 @@ var gameTable = Array(count: 3, repeatedValue: Array(count: 3, repeatedValue: em
 
 var game = State(table: gameTable, depth: 0,utility: 0)
 
+let playerSymbol:Character = "X"
+let computerSymbol:Character = "O"
+
 while true {
 
     game.prettyPrint()
+
+    let (bool,winner) = checkWinner(gameTable)
+
+    if bool{
+        print ("The winner is \(winner)")
+        print("👏👏👏👏👏👏")
+        exit(0)
+    }
 
     var inputTuple = readPositionsFromUser()
 
     while inputTuple == nil {
         print()
-        print("YOU IDIOT")
+        print("INVALID POSITION")
         print()
         sleep(1)
         inputTuple = readPositionsFromUser()
@@ -31,9 +42,15 @@ while true {
     let (row,col) = inputTuple!
 
     if gameTable[row][col] == " " {
-        gameTable[row][col] = "O"
+        gameTable[row][col] = playerSymbol
     }
-    
+    else{
+        print()
+        print("Can't play on a position that has already been chosen")
+        print()
+        sleep(1)
+    }
+
     game = State(table: gameTable,depth: 1, utility: 1)
     
 }

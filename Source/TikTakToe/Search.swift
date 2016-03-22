@@ -8,11 +8,6 @@
 
 import Foundation
 
-func utility(){
-
-}
-
-let playerSimbol:Character = "X"
 
 func generateSuccessors(currentState: State) -> [State]{
     var successors = [State]()
@@ -24,8 +19,8 @@ func generateSuccessors(currentState: State) -> [State]{
         for j in 0..<3 {
             if(fatherTable[i][j] == " "){
                 var childTable = fatherTable
-                childTable[i][j] = playerSimbol
-                let childState = State(table: childTable, depth: fatherDepth+1, utility: 0)
+                childTable[i][j] = playerSymbol
+                let childState = State(table: childTable, depth: fatherDepth+1, utility: getUtility(childTable))
                 successors.append(childState)
             }
         }

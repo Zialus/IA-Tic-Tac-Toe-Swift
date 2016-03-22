@@ -31,9 +31,9 @@ func readPositionsFromUser() -> (row: Int,col: Int)? {
         else{
             print("BAD INPUT!!!")
         }
-
+        
     }
-
+    
     return nil
-
+    
 }
