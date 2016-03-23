@@ -44,25 +44,27 @@ func getSDUtility(table: [[Character]], symbol: Character) -> Int  {
 
 // Calculates the Utiity for all Rows
 func getRowUtility(table: [[Character]], symbol:Character) -> Int{
+    var utility = 0
     for row in 0..<3 {
         if (table[row][0] == symbol || table[row][0] == " ") &&
             (table[row][1] == symbol || table[row][1] == " ") &&
             (table[row][2] == symbol || table[row][2] == " ") {
-            return 1
+            utility+=1
         }
     }
-    return 0
+    return utility
 }
 
 // Calculates the Utiity for all Columns
 func getColUtility(table: [[Character]], symbol:Character) -> Int{
+    var utility = 0
     for col in 0..<3 {
         if (table[0][col] == symbol || table[0][col] == " ") &&
             (table[1][col] == symbol || table[1][col] == " ") &&
             (table[2][col] == symbol || table[2][col] == " ") {
-            return 1
+            utility+=1
         }
     }
-    return 0
+    return utility
 }
 
