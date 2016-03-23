@@ -23,8 +23,8 @@ func getUtility(table: [[Character]]) -> Int{
 func getMDUtility(table: [[Character]], symbol: Character) -> Int {
 
     if (table[0][0] == symbol || table[0][0] == " ") &&
-        (table[0][0] == symbol || table[0][0] == " ") &&
-        (table[0][0] == symbol || table[0][0] == " ") {
+        (table[1][1] == symbol || table[1][1] == " ") &&
+        (table[2][2] == symbol || table[2][2] == " ") {
         return 1
     }
 
