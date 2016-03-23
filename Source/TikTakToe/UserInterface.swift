@@ -8,6 +8,37 @@
 
 import Foundation
 
+func readCharacterFromUser() -> Character? {
+
+    print("Pick your weapon!\nPress (O) for Circle\t Press (X) for Cross: ", terminator:"")
+
+    if let userInput = readLine(stripNewline: true) {
+        if userInput == "O" {
+            return "O"
+        }
+        if userInput == "X"{
+            return "X"
+        }
+    }
+    return nil
+}
+
+func whoGoesFirst() -> Character? {
+
+    print("Pick who goes first\nPress (C) for Computer\t Press (P) for Player: ", terminator:"")
+
+    if let userInput = readLine(stripNewline: true) {
+        if userInput == "C" {
+            return "C"
+        }
+        if userInput == "P"{
+            return "P"
+        }
+    }
+    return nil
+}
+
+
 func readPositionsFromUser() -> (row: Int,col: Int)? {
 
     print("Introduce row and col separed by a space: ", terminator:"")
