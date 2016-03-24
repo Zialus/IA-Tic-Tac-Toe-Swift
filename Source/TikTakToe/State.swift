@@ -9,14 +9,16 @@
 import Foundation
 
 class State {
-    let table: [[Character]]
+    var table: [[Character]]
     let depth: Int
     let utility: Int
+    var value: Int?
 
     init(table: [[Character]],  depth: Int, utility: Int) {
         self.table = table
         self.depth = depth
         self.utility = utility
+        self.value = nil
     }
 
     func prettyPrint() {

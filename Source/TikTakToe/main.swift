@@ -92,31 +92,38 @@ while true {
             }
 
         }
+
+
+
+        game = State(table: game.table,depth: game.depth+1, utility: getUtility(game.table))
+
     }
 
 
     if whosTurn == Turn.Computer {
-        computerInputInfiniteLoop: while true{
+//        computerInputInfiniteLoop: while true{
+//
+//            let row = Int(arc4random_uniform(3))
+//            let col = Int(arc4random_uniform(3))
+//
+//            if gameTable[row][col] != " " {
+//                print()
+//                print("Can't play on a position that has already been chosen")
+//                print()
+//                sleep(1)
+//                continue computerInputInfiniteLoop
+//            } else {
+//                gameTable[row][col] = computerSymbol
+//                break computerInputInfiniteLoop
+//            }
+//
+//        }
 
-            let row = Int(arc4random_uniform(3))
-            let col = Int(arc4random_uniform(3))
+        game = MINIMAX_DECISION(game)
 
-            if gameTable[row][col] != " " {
-                print()
-                print("Can't play on a position that has already been chosen")
-                print()
-                sleep(1)
-                continue computerInputInfiniteLoop
-            } else {
-                gameTable[row][col] = computerSymbol
-                break computerInputInfiniteLoop
-            }
-
-        }
     }
 
 
-    game = State(table: gameTable,depth: 1, utility: 1)
 
 
 
