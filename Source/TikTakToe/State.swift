@@ -9,7 +9,7 @@
 import Foundation
 
 class State {
-    var table: [[Character]]
+    let table: [[Character]]
     let depth: Int
     let utility: Int
     var value: Int?

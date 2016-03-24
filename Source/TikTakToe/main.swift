@@ -15,9 +15,9 @@ enum Turn {
 
 let emptyChar: Character = " "
 
-var gameTable = Array(count: 3, repeatedValue: Array(count: 3, repeatedValue: emptyChar ))
+let initialGameTable = Array(count: 3, repeatedValue: Array(count: 3, repeatedValue: emptyChar ))
 
-var game = State(table: gameTable, depth: 0,utility: 0)
+var game = State(table: initialGameTable, depth: 0,utility: 0)
 
 let humanSymbol:Character
 let computerSymbol:Character
@@ -52,7 +52,7 @@ while true {
 
     game.prettyPrint()
 
-    let (bool,winnerSymbol) = checkWinner(gameTable)
+    let (bool,winnerSymbol) = checkWinner(game.table)
 
     if bool{
         print("👏👏👏👏👏👏")
@@ -66,6 +66,10 @@ while true {
 
 
     if whosTurn == Turn.Human{
+
+        // The table for the next State starts out as a copy of the table of the current State
+        var nextGameTable = game.table
+
         humanInputInfiniteLoop: while true {
 
             var inputTuple = readPositionsFromUser()
@@ -80,22 +84,23 @@ while true {
 
             let (row,col) = inputTuple!
 
-            if game.table[row][col] != " " {
+            if nextGameTable[row][col] != " " {
                 print()
                 print("Can't play on a position that has already been chosen")
                 print()
                 sleep(1)
                 continue humanInputInfiniteLoop
             } else{
-                game.table[row][col] = humanSymbol
+                nextGameTable[row][col] = humanSymbol
                 break humanInputInfiniteLoop
             }
 
+
+
         }
 
+        game = State(table: nextGameTable,depth: game.depth+1, utility: getUtility(game.table))
 
-
-        game = State(table: game.table,depth: game.depth+1, utility: getUtility(game.table))
 
     }
 
