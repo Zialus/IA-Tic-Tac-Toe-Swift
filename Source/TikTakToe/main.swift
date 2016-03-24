@@ -9,7 +9,7 @@
 import Foundation
 
 enum Turn {
-    case Player
+    case Human
     case Computer
 }
 
@@ -19,7 +19,7 @@ var gameTable = Array(count: 3, repeatedValue: Array(count: 3, repeatedValue: em
 
 var game = State(table: gameTable, depth: 0,utility: 0)
 
-let playerSymbol:Character
+let humanSymbol:Character
 let computerSymbol:Character
 
 var charFromUser = readCharacterFromUser()
@@ -27,8 +27,8 @@ while charFromUser == nil{
     charFromUser = readCharacterFromUser()
 }
 
-playerSymbol = charFromUser!
-if playerSymbol == "O"{
+humanSymbol = charFromUser!
+if humanSymbol == "O"{
     computerSymbol = "X"
 } else {
     computerSymbol = "O"
@@ -42,7 +42,7 @@ while goesFirst == nil{
 var whosTurn: Turn
 
 if goesFirst == "P"{
-    whosTurn = Turn.Player
+    whosTurn = Turn.Human
 } else {
     whosTurn = Turn.Computer
 }
@@ -65,8 +65,8 @@ while true {
 
 
 
-    if whosTurn == Turn.Player{
-        playerInputInfiniteLoop: while true {
+    if whosTurn == Turn.Human{
+        humanInputInfiniteLoop: while true {
 
             var inputTuple = readPositionsFromUser()
 
@@ -80,15 +80,15 @@ while true {
 
             let (row,col) = inputTuple!
 
-            if gameTable[row][col] != " " {
+            if game.table[row][col] != " " {
                 print()
                 print("Can't play on a position that has already been chosen")
                 print()
                 sleep(1)
-                continue playerInputInfiniteLoop
+                continue humanInputInfiniteLoop
             } else{
-                gameTable[row][col] = playerSymbol
-                break playerInputInfiniteLoop
+                game.table[row][col] = humanSymbol
+                break humanInputInfiniteLoop
             }
 
         }
@@ -121,10 +121,10 @@ while true {
 
 
     switch whosTurn{
-    case Turn.Player:
+    case Turn.Human:
         whosTurn = Turn.Computer
     case Turn.Computer:
-        whosTurn = Turn.Player
+        whosTurn = Turn.Human
     }
     
 }

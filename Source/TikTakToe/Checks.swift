@@ -12,14 +12,14 @@ func whoWon(c: Character) -> String{
 
     switch c {
     case "O":
-        if playerSymbol == "O"{
+        if humanSymbol == "O"{
             return "You win!"
         }
         else{
             return "The Computer won!"
         }
     case "X":
-        if playerSymbol == "X"{
+        if humanSymbol == "X"{
             return "You win!"
         }
         else{

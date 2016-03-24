@@ -11,10 +11,10 @@ import Foundation
 // Adds all the Utilities
 func getUtility(table: [[Character]]) -> Int{
 
-    let mdUtil = getMDUtility(table, symbol: computerSymbol)  - getMDUtility(table, symbol:playerSymbol)
-    let sdUtil = getSDUtility(table, symbol: computerSymbol)  - getSDUtility(table, symbol:playerSymbol)
-    let roUtil = getRowUtility(table, symbol: computerSymbol) - getRowUtility(table, symbol:playerSymbol)
-    let coUtil = getColUtility(table, symbol: computerSymbol) - getColUtility(table, symbol:playerSymbol)
+    let mdUtil = getMDUtility(table, symbol: computerSymbol)  - getMDUtility(table, symbol:humanSymbol)
+    let sdUtil = getSDUtility(table, symbol: computerSymbol)  - getSDUtility(table, symbol:humanSymbol)
+    let roUtil = getRowUtility(table, symbol: computerSymbol) - getRowUtility(table, symbol:humanSymbol)
+    let coUtil = getColUtility(table, symbol: computerSymbol) - getColUtility(table, symbol:humanSymbol)
 
     return mdUtil+sdUtil+roUtil+coUtil;
 }
