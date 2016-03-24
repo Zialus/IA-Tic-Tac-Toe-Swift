@@ -30,6 +30,12 @@ func generateSuccessors(currentState: State, nextPlayerSymbol: Character) -> [St
     return successors
 }
 
+func TERMINAL_TEST(someState: State) -> (Bool) {
+
+    return isFull(someState.table)
+    
+}
+
 
 func MINIMAX_DECISION(currentState: State) -> (State) {
 
@@ -39,7 +45,10 @@ func MINIMAX_DECISION(currentState: State) -> (State) {
     // TODO: try to make this safer - Part1
     var chosenSuccessor = successors.first
 
+
+    print("valor \(v)")
     for s in successors {
+        print("LOLOLOL")
         if s.value == v{
             chosenSuccessor = s
             break
@@ -70,13 +79,6 @@ func MAX_VALUE(currentState: State) -> (Int) {
     return v
 }
 
-func TERMINAL_TEST(someState: State) -> Bool {
-
-    let (bool,_) = checkWinner(someState.table);
-
-    return bool;
-
-}
 
 func MIN_VALUE(currentState: State) -> (Int) {
 
@@ -85,13 +87,13 @@ func MIN_VALUE(currentState: State) -> (Int) {
     }
 
     var v = Int.max
-    let successors = generateSuccessors(currentState, nextPlayerSymbol: humanSymbol)
-
+    let successors = generateSuccessors(currentState, nextPlayerSymbol: computerSymbol)
+    
     for s in successors{
         v = min(v, MAX_VALUE(s))
         s.value = v
     }
-
+    
     return v
-
+    
 }

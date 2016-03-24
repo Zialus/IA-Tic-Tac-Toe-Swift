@@ -11,6 +11,27 @@ import Foundation
 // Adds all the Utilities
 func getUtility(table: [[Character]]) -> Int{
 
+    // If the Table is full check the winner and atribute the utility acordingly
+    if isFull(table){
+        let (bool,winnerSymbol) = checkWinner(game.table)
+
+        if bool{
+            if winnerSymbol == computerSymbol{
+                return 100
+            }
+
+            else if winnerSymbol == humanSymbol{
+                return -100
+            }
+
+            else{
+                return 0
+            }
+
+        }
+
+    }
+
     let mdUtil = getMDUtility(table, symbol: computerSymbol)  - getMDUtility(table, symbol:humanSymbol)
     let sdUtil = getSDUtility(table, symbol: computerSymbol)  - getSDUtility(table, symbol:humanSymbol)
     let roUtil = getRowUtility(table, symbol: computerSymbol) - getRowUtility(table, symbol:humanSymbol)
