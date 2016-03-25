@@ -62,7 +62,11 @@ while true {
         exit(0)
     }
 
-
+    // If a winner can't be found but the the table is full declare a draw
+    if isFull(game.table){
+        print("It's a DRAW!!")
+        exit(0)
+    }
 
 
     if whosTurn == Turn.Human{

@@ -32,7 +32,16 @@ func generateSuccessors(currentState: State, nextPlayerSymbol: Character) -> [St
 
 func TERMINAL_TEST(someState: State) -> (Bool) {
 
-    return isFull(someState.table)
+    // The game might have eneded because there are no more moves left
+    if isFull(someState.table){
+        return true
+    }
+
+    // Or because someone has won
+    let (bool,_) = checkWinner(someState.table)
+
+    // I don't need to know the winner, only wether there is a winner or not
+    return bool
     
 }
 
@@ -47,7 +56,7 @@ func MINIMAX_DECISION(currentState: State) -> (State) {
     print(currentState.successors!.count)
     print("valor \(v)")
     for s in currentState.successors! {
-        print("LOLOLOL")
+        s.prettyPrint()
         print(s.value)
         if s.value == v{
             chosenSuccessor = s

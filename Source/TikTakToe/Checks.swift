@@ -26,7 +26,7 @@ func whoWon(c: Character) -> String{
             return "The Computer won!"
         }
     default:
-        return "It's a DRAW!"
+        return "Something weird happend :S"
     }
 
 }
