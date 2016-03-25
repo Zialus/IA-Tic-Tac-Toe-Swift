@@ -51,7 +51,7 @@ func readPositionsFromUser() -> (row: Int,col: Int)? {
             let row = Int(piecePlacemente[0])!
             let col = Int(piecePlacemente[1])!
 
-            if (row > 2 ) || ( col > 2 ) {
+            if row > 2 || row < 0  ||  col > 2 || col < 0  {
                 return nil
             }
 
