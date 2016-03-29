@@ -23,6 +23,10 @@ class State {
         self.successors = nil
     }
 
+//    deinit{
+//        print("cleaning up")
+//    }
+
     func prettyPrint() {
         print("+---+---+---+")
         for i in 0..<3 {

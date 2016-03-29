@@ -27,6 +27,7 @@ func generateSuccessors(currentState: State, nextPlayerSymbol: Character) -> [St
         }
     }
 
+    totalNos+=successors.count
     return successors
 }
 
@@ -53,14 +54,16 @@ func MINIMAX_DECISION(currentState: State) -> (State) {
     // TODO: try to make this safer - Part1
     var chosenSuccessor = currentState.successors!.first
 
+    var bestUtilitySoFar = Int.min
+
     print(currentState.successors!.count)
     print("valor \(v)")
     for s in currentState.successors! {
         s.prettyPrint()
         print(s.value)
-        if s.value == v{
+        if s.value == v && s.utility > bestUtilitySoFar{
             chosenSuccessor = s
-            break
+            bestUtilitySoFar = s.utility
         }
     }
 
@@ -117,16 +120,19 @@ func ALPHA_BETA_DECISION (currentState: State) -> (State) {
     // TODO: try to make this safer - Part1
     var chosenSuccessor = currentState.successors!.first
 
+    var bestUtilitySoFar = Int.min
+
     print(currentState.successors!.count)
     print("valor \(v)")
     for s in currentState.successors! {
         s.prettyPrint()
         print(s.value)
-        if s.value == v{
+        if s.value == v && s.utility > bestUtilitySoFar{
             chosenSuccessor = s
-            break
+            bestUtilitySoFar = s.utility
         }
     }
+
 
     // TODO: try to make this safer - Part2
     return chosenSuccessor!

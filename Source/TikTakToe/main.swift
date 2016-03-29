@@ -8,6 +8,9 @@
 
 import Foundation
 
+// VARIAVEL PARA DEBUG DE NOS
+var totalNos = 0
+
 enum Turn {
     case Human
     case Computer
@@ -62,6 +65,7 @@ if let algoInfo = alphaBetaInfoFromUser {
 while true {
 
     game.prettyPrint()
+    print("Nos gerados até ao momento \(totalNos)")
 
     let (bool,winnerSymbol) = checkWinner(game.table)
 
