@@ -25,17 +25,23 @@ var game = State(table: initialGameTable, depth: 0,utility: 0)
 let humanSymbol:Character
 let computerSymbol:Character
 
-var charFromUser = readCharacterFromUser()
-while charFromUser == nil{
+
+//--------Parse which Char Symbol the user inputed and deduce the Char for the Computer from it------//
+var charFromUser: Character?
+
+repeat {
     charFromUser = readCharacterFromUser()
-}
+} while charFromUser == nil
 
 humanSymbol = charFromUser!
-if humanSymbol == "O"{
+
+if charFromUser == "O"{
     computerSymbol = "X"
 } else {
     computerSymbol = "O"
 }
+
+//--------Parse who should play first------//
 
 var goesFirst = whoGoesFirst()
 while goesFirst == nil{
@@ -49,6 +55,8 @@ if goesFirst == "P"{
 } else {
     whosTurn = Turn.Computer
 }
+
+//--------Parse Alpha-Beta Info------//
 
 var alphaBetaInfoFromUser = readIsAlphaBeta()
 while alphaBetaInfoFromUser == nil{
@@ -152,13 +160,11 @@ while true {
             game = MINIMAX_DECISION(game)
         }
         
-        let end = NSDate()
 
-        let diffDateComponents = NSCalendar.currentCalendar().components(
-            [NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second, NSCalendarUnit.Nanosecond],
-            fromDate: start, toDate: end, options: NSCalendarOptions.init(rawValue: 0))
-
-        print("The search took: \(diffDateComponents.year) years, \(diffDateComponents.month) months,\(diffDateComponents.day) days,\(diffDateComponents.hour) hours, \(diffDateComponents.minute) minutes,\(diffDateComponents.second) seconds, \(diffDateComponents.nanosecond) nanoseconds")
+        let end = NSDate();
+        // Difference in seconds
+        let timeInterval: Double = end.timeIntervalSinceDate(start)
+        print("Elapsed Time: \(timeInterval) seconds");
 
     }
 
