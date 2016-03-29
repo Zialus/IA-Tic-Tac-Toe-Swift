@@ -25,7 +25,7 @@ func readCharacterFromUser() -> Character? {
 
 func whoGoesFirst() -> Character? {
 
-    print("Pick who goes first\nPress (C) for Computer\t Press (P) for Player: ", terminator:"")
+    print("Pick who goes first:\nPress (C) for Computer\t Press (P) for Player: ", terminator:"")
 
     if let userInput = readLine(stripNewline: true) {
         if userInput == "C" {
@@ -67,4 +67,20 @@ func readPositionsFromUser() -> (row: Int,col: Int)? {
     
     return nil
     
+}
+
+
+func readIsAlphaBeta() -> Character? {
+
+    print("Do you want to use Alpha-Beta Prunning?\nPress (M) for simple MiniMax\t Press (B) for AlphaBeta: ", terminator:"")
+
+    if let userInput = readLine(stripNewline: true) {
+        if userInput == "M" {
+            return "M"
+        }
+        if userInput == "B"{
+            return "B"
+        }
+    }
+    return nil
 }

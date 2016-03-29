@@ -42,7 +42,7 @@ func TERMINAL_TEST(someState: State) -> (Bool) {
 
     // I don't need to know the winner, only wether there is a winner or not
     return bool
-    
+
 }
 
 
@@ -98,11 +98,82 @@ func MIN_VALUE(currentState: State) -> (Int) {
 
     var v = Int.max
     currentState.successors = generateSuccessors(currentState, nextPlayerSymbol: humanSymbol)
-    
+
     for s in currentState.successors!{
         let maxVal = MAX_VALUE(s)
         s.value = maxVal
         v = min(v, maxVal)
+    }
+
+    return v
+
+}
+
+
+func ALPHA_BETA_DECISION (currentState: State) -> (State) {
+
+    let v = MAX_VALUE_AB(currentState,alfa: Int.min,beta: Int.max)
+
+    // TODO: try to make this safer - Part1
+    var chosenSuccessor = currentState.successors!.first
+
+    print(currentState.successors!.count)
+    print("valor \(v)")
+    for s in currentState.successors! {
+        s.prettyPrint()
+        print(s.value)
+        if s.value == v{
+            chosenSuccessor = s
+            break
+        }
+    }
+
+    // TODO: try to make this safer - Part2
+    return chosenSuccessor!
+
+}
+
+func MAX_VALUE_AB(currentState: State, alfa: Int, beta: Int) -> (Int) {
+    var alfa = alfa
+
+    if TERMINAL_TEST(currentState){
+        return currentState.utility
+    }
+
+    var v = Int.min
+    currentState.successors = generateSuccessors(currentState, nextPlayerSymbol: computerSymbol)
+
+    for s in currentState.successors! {
+        let minVal = MIN_VALUE_AB(s,alfa: alfa,beta: beta)
+        s.value = minVal
+        v = max(v, minVal)
+        if v >= beta {
+            return v
+        }
+        alfa = max(alfa,v)
+    }
+
+    return v
+}
+
+func MIN_VALUE_AB(currentState: State, alfa: Int, beta: Int) -> (Int) {
+    var beta = beta
+
+    if TERMINAL_TEST(currentState){
+        return currentState.utility
+    }
+
+    var v = Int.max
+    currentState.successors = generateSuccessors(currentState, nextPlayerSymbol: humanSymbol)
+
+    for s in currentState.successors!{
+        let maxVal = MAX_VALUE_AB(s,alfa: alfa,beta: beta)
+        s.value = maxVal
+        v = min(v, maxVal)
+        if v <= alfa {
+            return v
+        }
+        beta = min(beta,v)
     }
     
     return v

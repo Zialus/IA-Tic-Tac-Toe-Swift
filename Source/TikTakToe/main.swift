@@ -47,6 +47,17 @@ if goesFirst == "P"{
     whosTurn = Turn.Computer
 }
 
+var alphaBetaInfoFromUser = readIsAlphaBeta()
+while alphaBetaInfoFromUser == nil{
+    alphaBetaInfoFromUser = readIsAlphaBeta()
+}
+
+var alphaBeta = false
+if let algoInfo = alphaBetaInfoFromUser {
+    if algoInfo == "B"{
+        alphaBeta = true
+    }
+}
 
 while true {
 
@@ -110,6 +121,9 @@ while true {
 
 
     if whosTurn == Turn.Computer {
+
+        let start = NSDate()
+
 //        computerInputInfiniteLoop: while true{
 //
 //            let row = Int(arc4random_uniform(3))
@@ -128,7 +142,19 @@ while true {
 //
 //        }
 
-        game = MINIMAX_DECISION(game)
+        if alphaBeta{
+            game = ALPHA_BETA_DECISION(game)
+        } else {
+            game = MINIMAX_DECISION(game)
+        }
+        
+        let end = NSDate()
+
+        let diffDateComponents = NSCalendar.currentCalendar().components(
+            [NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second, NSCalendarUnit.Nanosecond],
+            fromDate: start, toDate: end, options: NSCalendarOptions.init(rawValue: 0))
+
+        print("The search took: \(diffDateComponents.year) years, \(diffDateComponents.month) months,\(diffDateComponents.day) days,\(diffDateComponents.hour) hours, \(diffDateComponents.minute) minutes,\(diffDateComponents.second) seconds, \(diffDateComponents.nanosecond) nanoseconds")
 
     }
 
