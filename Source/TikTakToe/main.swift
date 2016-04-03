@@ -8,14 +8,14 @@
 
 import Foundation
 
-processCmdLineArgs()
-
 // VAR to store number of Nodes
 var totalNodes = 0
 
 // VARS to store info about whether to print debug stuff or not
 var DEBUG = false
 var FULLDEBUG = false
+
+processCmdLineArgs()
 
 enum Turn {
     case Human
