@@ -15,16 +15,20 @@ sudo apt-get install swift-2.2
 
 ```
 
-## How to install the 8-puzzle-solver
+## How to download and compile the Tic-Tac-Toe program
 
-```bash
-git clone https://github.com/Zialus/8-puzzle-TikTakToe.git
+``` bash
+
+git clone https://github.com/Zialus/TikTakToe.git
 cd TikTakToe
-swift build
+make
+
 ```
 
 ## How to run it
 
-```bash
-./.build/debug/TikTakToe
+``` bash
+
+./TikTakToe
+
 ```
