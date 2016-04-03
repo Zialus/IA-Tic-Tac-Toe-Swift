@@ -76,6 +76,7 @@ if let algoInfo = alphaBetaInfoFromUser {
     }
 }
 
+//Infite loop where the playing of the Tic Tac Toe actually happens
 while true {
 
     game.prettyPrint()
@@ -140,7 +141,6 @@ while true {
 
     }
 
-
     if whosTurn == Turn.Computer {
 
         let start = NSDate()
@@ -179,11 +179,9 @@ while true {
         }
         
     }
-    
-    
-    
-    
-    
+
+
+    // Give the next turn to the player who didn't play this time
     switch whosTurn{
     case Turn.Human:
         whosTurn = Turn.Computer

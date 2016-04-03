@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 func generateSuccessors(currentState: State, nextPlayerSymbol: Character) -> [State]{
 
     var successors = [State]()

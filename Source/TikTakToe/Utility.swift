@@ -8,14 +8,10 @@
 
 import Foundation
 
-// Adds all the Utilities
 func getUtility(table: [[Character]]) -> Int{
-
 
     // If someone has won atribute utility acordingly
     let (bool,winnerSymbol) = checkWinner(table)
-
-
     if bool{
         if winnerSymbol == computerSymbol {
             return 100
@@ -26,7 +22,7 @@ func getUtility(table: [[Character]]) -> Int{
         //There are no more cases but whatever
     }
 
-    // Otherwise calculate has usual
+    // Otherwise calculate utility the usual way
     let mdUtil = getMDUtility(table, symbol: computerSymbol)  - getMDUtility(table, symbol:humanSymbol)
     let sdUtil = getSDUtility(table, symbol: computerSymbol)  - getSDUtility(table, symbol:humanSymbol)
     let roUtil = getRowUtility(table, symbol: computerSymbol) - getRowUtility(table, symbol:humanSymbol)
