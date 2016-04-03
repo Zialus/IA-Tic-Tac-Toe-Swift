@@ -8,6 +8,25 @@
 
 import Foundation
 
+func processCmdLineArgs() -> () {
+    for argument in Process.arguments {
+        switch argument {
+        case "debug":
+            print("debug mode is ON!")
+            DEBUG=true
+        case "fulldebug":
+            print("full debug mode is ON!!!")
+            DEBUG=true
+            FULLDEBUG=true
+        case "":
+            print("All debug functionality is turned OFF")
+
+        default:
+            print("Welcome to the best Tic Tac Toe implementation in swift ever!\n")
+        }
+    }
+}
+
 func readCharacterFromUser() -> Character? {
 
     print("Pick your weapon!\nPress (O) for Circle\t Press (X) for Cross: ", terminator:"")
@@ -48,38 +67,38 @@ func readPositionsFromUser() -> (row: Int,col: Int)? {
         var piecePlacemente = userInput.characters.split(" ").map(String.init)
 
         if piecePlacemente.count == 2 {
-            let row = Int(piecePlacemente[0])!
-            let col = Int(piecePlacemente[1])!
+            if let row = Int(piecePlacemente[0]), let col = Int(piecePlacemente[1]){
 
-            if row > 2 || row < 0  ||  col > 2 || col < 0  {
-                return nil
+                if row > 2 || row < 0  ||  col > 2 || col < 0  {
+                    print("INVALID POSITION!!!")
+                    return nil
+                }
+
+                return (row,col)
+
             }
-
-            return (row,col)
-
+            else{
+                print("BAD INPUT!!!")
+            }
         }
 
-        else{
-            print("BAD INPUT!!!")
-        }
-        
     }
-    
+
     return nil
-    
+
 }
 
 
 func readIsAlphaBeta() -> Character? {
 
-    print("Do you want to use Alpha-Beta Prunning?\nPress (M) for simple MiniMax\t Press (B) for AlphaBeta: ", terminator:"")
+    print("Do you want to use Alpha-Beta Prunning?\nPress (N) for simple MiniMax\t Press (Y) for AlphaBeta: ", terminator:"")
 
     if let userInput = readLine(stripNewline: true) {
-        if userInput == "M" {
-            return "M"
+        if userInput == "N" {
+            return "N"
         }
-        if userInput == "B"{
-            return "B"
+        if userInput == "Y"{
+            return "Y"
         }
     }
     return nil

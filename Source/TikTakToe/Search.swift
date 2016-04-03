@@ -12,6 +12,7 @@ import Foundation
 func generateSuccessors(currentState: State, nextPlayerSymbol: Character) -> [State]{
 
     var successors = [State]()
+    successors.reserveCapacity(10)
 
     let fatherTable = currentState.table
     let fatherDepth = currentState.depth
@@ -27,7 +28,8 @@ func generateSuccessors(currentState: State, nextPlayerSymbol: Character) -> [St
         }
     }
 
-    totalNos+=successors.count
+    totalNodes+=successors.count
+
     return successors
 }
 
@@ -55,12 +57,16 @@ func MINIMAX_DECISION(currentState: State) -> (State) {
     var chosenSuccessor = currentState.successors!.first
 
     var bestUtilitySoFar = Int.min
-
-    print(currentState.successors!.count)
-    print("valor \(v)")
+    if FULLDEBUG{
+        print("number of successors:",terminator:"")
+        print(currentState.successors!.count)
+        print("Value we are searching for: \(v)...")
+    }
     for s in currentState.successors! {
-        s.prettyPrint()
-        print(s.value)
+        if FULLDEBUG{
+            s.prettyPrint()
+            print("valor: \(s.value) , utilidade: \(s.utility)")
+        }
         if s.value == v && s.utility > bestUtilitySoFar{
             chosenSuccessor = s
             bestUtilitySoFar = s.utility
@@ -122,11 +128,16 @@ func ALPHA_BETA_DECISION (currentState: State) -> (State) {
 
     var bestUtilitySoFar = Int.min
 
-    print(currentState.successors!.count)
-    print("valor \(v)")
+    if FULLDEBUG{
+        print("number of successors:",terminator:"")
+        print(currentState.successors!.count)
+        print("Value we are searching for: \(v)...")
+    }
     for s in currentState.successors! {
-        s.prettyPrint()
-        print(s.value)
+        if FULLDEBUG{
+            s.prettyPrint()
+            print("valor: \(s.value) , utilidade: \(s.utility)")
+        }
         if s.value == v && s.utility > bestUtilitySoFar{
             chosenSuccessor = s
             bestUtilitySoFar = s.utility

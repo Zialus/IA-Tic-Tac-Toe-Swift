@@ -23,9 +23,9 @@ class State {
         self.successors = nil
     }
 
-//    deinit{
-//        print("cleaning up")
-//    }
+    //    deinit{
+    //        print("cleaning up")
+    //    }
 
     func prettyPrint() {
         print("+---+---+---+")

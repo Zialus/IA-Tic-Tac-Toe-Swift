@@ -8,8 +8,14 @@
 
 import Foundation
 
-// VARIAVEL PARA DEBUG DE NOS
-var totalNos = 0
+processCmdLineArgs()
+
+// VAR to store number of Nodes
+var totalNodes = 0
+
+// VARS to store info about whether to print debug stuff or not
+var DEBUG = false
+var FULLDEBUG = false
 
 enum Turn {
     case Human
@@ -65,7 +71,7 @@ while alphaBetaInfoFromUser == nil{
 
 var alphaBeta = false
 if let algoInfo = alphaBetaInfoFromUser {
-    if algoInfo == "B"{
+    if algoInfo == "Y"{
         alphaBeta = true
     }
 }
@@ -73,7 +79,10 @@ if let algoInfo = alphaBetaInfoFromUser {
 while true {
 
     game.prettyPrint()
-    print("Nos gerados até ao momento \(totalNos)")
+
+    if DEBUG{
+        print("Nodes generated so far \(totalNodes)")
+    }
 
     let (bool,winnerSymbol) = checkWinner(game.table)
 
@@ -103,7 +112,7 @@ while true {
 
             while inputTuple == nil {
                 print()
-                print("INVALID POSITION")
+                print("Pay attention!")
                 print()
                 sleep(1)
                 inputTuple = readPositionsFromUser()
@@ -136,42 +145,45 @@ while true {
 
         let start = NSDate()
 
-//        computerInputInfiniteLoop: while true{
-//
-//            let row = Int(arc4random_uniform(3))
-//            let col = Int(arc4random_uniform(3))
-//
-//            if gameTable[row][col] != " " {
-//                print()
-//                print("Can't play on a position that has already been chosen")
-//                print()
-//                sleep(1)
-//                continue computerInputInfiniteLoop
-//            } else {
-//                gameTable[row][col] = computerSymbol
-//                break computerInputInfiniteLoop
-//            }
-//
-//        }
+        //        computerInputInfiniteLoop: while true{
+        //
+        //            let row = Int(arc4random_uniform(3))
+        //            let col = Int(arc4random_uniform(3))
+        //
+        //            if gameTable[row][col] != " " {
+        //                print()
+        //                print("Can't play on a position that has already been chosen")
+        //                print()
+        //                sleep(1)
+        //                continue computerInputInfiniteLoop
+        //            } else {
+        //                gameTable[row][col] = computerSymbol
+        //                break computerInputInfiniteLoop
+        //            }
+        //
+        //        }
 
         if alphaBeta{
             game = ALPHA_BETA_DECISION(game)
         } else {
             game = MINIMAX_DECISION(game)
         }
-        
+
 
         let end = NSDate();
         // Difference in seconds
         let timeInterval: Double = end.timeIntervalSinceDate(start)
-        print("Elapsed Time: \(timeInterval) seconds");
 
+        if DEBUG{
+            print("Elapsed Time: \(timeInterval) seconds");
+        }
+        
     }
-
-
-
-
-
+    
+    
+    
+    
+    
     switch whosTurn{
     case Turn.Human:
         whosTurn = Turn.Computer
