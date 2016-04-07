@@ -76,7 +76,7 @@ func whoGoesFirst() -> Character? {
 }
 
 
-func readPositionsFromUser() -> (row: Int,col: Int)? {
+func readPositionsFromUser() -> (row: Int, col: Int)? {
 
     print("Introduce row and col separed by a space: ", terminator:"")
 
@@ -85,17 +85,16 @@ func readPositionsFromUser() -> (row: Int,col: Int)? {
         var piecePlacemente = userInput.characters.split(" ").map(String.init)
 
         if piecePlacemente.count == 2 {
-            if let row = Int(piecePlacemente[0]), let col = Int(piecePlacemente[1]){
+            if let row = Int(piecePlacemente[0]), let col = Int(piecePlacemente[1]) {
 
-                if row > 2 || row < 0  ||  col > 2 || col < 0  {
+                if row > 2 || row < 0  ||  col > 2 || col < 0 {
                     print("INVALID POSITION!!!")
                     return nil
                 }
 
-                return (row,col)
+                return (row, col)
 
-            }
-            else{
+            } else {
                 print("BAD INPUT!!!")
             }
         }

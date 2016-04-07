@@ -26,13 +26,13 @@ let emptyChar: Character = " "
 
 let initialGameTable = Array(count: 3, repeatedValue: Array(count: 3, repeatedValue: emptyChar ))
 
-var game = State(table: initialGameTable, depth: 0,utility: 0)
+var game = State(table: initialGameTable, depth: 0, utility: 0)
 
-let humanSymbol:Character
-let computerSymbol:Character
+let humanSymbol: Character
+let computerSymbol: Character
 
 
-//--------Parse which Char Symbol the user inputed and deduce the Char for the Computer from it------//
+//---Parse which Char Symbol the user inputed and deduce the Char for the Computer from it---//
 var charFromUser: Character?
 
 repeat {
@@ -50,7 +50,7 @@ if charFromUser == "O"{
 //--------Parse who should play first------//
 
 var goesFirst = whoGoesFirst()
-while goesFirst == nil{
+while goesFirst == nil {
     goesFirst = whoGoesFirst()
 }
 
@@ -65,7 +65,7 @@ if goesFirst == "P"{
 //--------Parse Alpha-Beta Info------//
 
 var alphaBetaInfoFromUser = readIsAlphaBeta()
-while alphaBetaInfoFromUser == nil{
+while alphaBetaInfoFromUser == nil {
     alphaBetaInfoFromUser = readIsAlphaBeta()
 }
 
@@ -81,13 +81,13 @@ while true {
 
     game.prettyPrint()
 
-    if DEBUG{
+    if DEBUG {
         print("Nodes generated so far \(totalNodes)")
     }
 
-    let (bool,winnerSymbol) = checkWinner(game.table)
+    let (bool, winnerSymbol) = checkWinner(game.table)
 
-    if bool{
+    if bool {
         print("👏👏👏👏👏👏")
         let winnerString = whoWon(winnerSymbol)
         print (winnerString)
@@ -96,13 +96,13 @@ while true {
     }
 
     // If a winner can't be found but the the table is full declare a draw
-    if isFull(game.table){
+    if isFull(game.table) {
         print("It's a DRAW!!")
         exit(0)
     }
 
 
-    if whosTurn == Turn.Human{
+    if whosTurn == Turn.Human {
 
         // The table for the next State starts out as a copy of the table of the current State
         var nextGameTable = game.table
@@ -119,7 +119,7 @@ while true {
                 inputTuple = readPositionsFromUser()
             }
 
-            let (row,col) = inputTuple!
+            let (row, col) = inputTuple!
 
             if nextGameTable[row][col] != " " {
                 print()
@@ -127,7 +127,7 @@ while true {
                 print()
                 sleep(1)
                 continue humanInputInfiniteLoop
-            } else{
+            } else {
                 nextGameTable[row][col] = humanSymbol
                 break humanInputInfiniteLoop
             }
@@ -136,7 +136,7 @@ while true {
 
         }
 
-        game = State(table: nextGameTable,depth: game.depth+1, utility: getUtility(game.table))
+        game = State(table: nextGameTable, depth: game.depth+1, utility: getUtility(game.table))
 
 
     }
@@ -163,30 +163,30 @@ while true {
         //
         //        }
 
-        if alphaBeta{
+        if alphaBeta {
             game = ALPHA_BETA_DECISION(game)
         } else {
             game = MINIMAX_DECISION(game)
         }
 
 
-        let end = NSDate();
+        let end = NSDate()
         // Difference in seconds
         let timeInterval: Double = end.timeIntervalSinceDate(start)
 
-        if DEBUG{
-            print("Elapsed Time: \(timeInterval) seconds");
+        if DEBUG {
+            print("Elapsed Time: \(timeInterval) seconds")
         }
-        
+
     }
 
 
     // Give the next turn to the player who didn't play this time
-    switch whosTurn{
+    switch whosTurn {
     case Turn.Human:
         whosTurn = Turn.Computer
     case Turn.Computer:
         whosTurn = Turn.Human
     }
-    
+
 }
