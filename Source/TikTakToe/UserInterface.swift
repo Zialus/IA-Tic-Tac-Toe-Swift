@@ -9,22 +9,40 @@
 import Foundation
 
 func processCmdLineArgs() -> () {
-    for argument in Process.arguments {
-        switch argument {
+
+    //    var i = 0
+    //    for argument in Process.arguments {
+    //        print("Arg \(i): \(argument)")
+    //        i+=1
+    //    }
+
+    print("Welcome to the best Tic Tac Toe implementation in swift ever!\n")
+
+    if Process.arguments.count > 2 {
+        print("Too many arguments!")
+        exit(1)
+    } else if Process.arguments.count == 2 {
+        let onlyArg = Process.arguments[1]
+
+        switch onlyArg {
         case "debug":
             print("debug mode is ON!")
             DEBUG=true
+            break
         case "fulldebug":
             print("full debug mode is ON!!!")
             DEBUG=true
             FULLDEBUG=true
-        case "":
-            print("All debug functionality is turned OFF")
-
+            break
         default:
-            print("Welcome to the best Tic Tac Toe implementation in swift ever!\n")
+            print("LOLWUT!? \"\(onlyArg)\": is an unrecognized argument")
+            exit(1)
         }
+
+    } else {
+        print("All debug functionality is turned OFF")
     }
+
 }
 
 func readCharacterFromUser() -> Character? {
