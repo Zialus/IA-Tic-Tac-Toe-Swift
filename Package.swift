@@ -9,5 +9,5 @@
 import PackageDescription
 
 let package = Package(
-    name: "TikTakToe"
+    name: "TicTacToe"
 )
