@@ -1,7 +1,7 @@
 all:
 	swift build
-	mv ./.build/debug/TikTakToe .
+	mv ./.build/debug/TicTacToe .
 
 clean:
-	if [ -f ./TikTakToe ]; then rm ./TikTakToe; fi
+	if [ -f ./TicTacToe ]; then rm ./TicTacToe; fi
 	if [ -d ./.build/ ]; then rm -rf ./.build/; fi
