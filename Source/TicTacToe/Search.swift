@@ -163,7 +163,7 @@ func MAX_VALUE_AB(currentState: State, alfa: Int, beta: Int) -> (Int) {
         let minVal = MIN_VALUE_AB(s, alfa: alfa, beta: beta)
         s.value = minVal
         v = max(v, minVal)
-        if v >= beta {
+        if v > beta {
             return v
         }
         alfa = max(alfa, v)
@@ -186,7 +186,7 @@ func MIN_VALUE_AB(currentState: State, alfa: Int, beta: Int) -> (Int) {
         let maxVal = MAX_VALUE_AB(s, alfa: alfa, beta: beta)
         s.value = maxVal
         v = min(v, maxVal)
-        if v <= alfa {
+        if v < alfa {
             return v
         }
         beta = min(beta, v)
