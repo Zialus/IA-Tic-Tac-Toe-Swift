@@ -10,12 +10,6 @@ import Foundation
 
 func processCmdLineArgs() -> () {
 
-    //    var i = 0
-    //    for argument in Process.arguments {
-    //        print("Arg \(i): \(argument)")
-    //        i+=1
-    //    }
-
     print("Welcome to the best Tic Tac Toe implementation in swift ever!\n")
 
     if Process.arguments.count > 2 {

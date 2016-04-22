@@ -99,6 +99,6 @@ func isFull(table: [[Character]]) -> Bool {
             }
         }
     }
-
+    
     return true
 }

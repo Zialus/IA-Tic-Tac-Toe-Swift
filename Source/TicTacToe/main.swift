@@ -188,5 +188,5 @@ while true {
     case Turn.Computer:
         whosTurn = Turn.Human
     }
-
+    
 }

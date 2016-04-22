@@ -191,7 +191,7 @@ func MIN_VALUE_AB(currentState: State, alfa: Int, beta: Int) -> (Int) {
         }
         beta = min(beta, v)
     }
-
+    
     return v
-
+    
 }
