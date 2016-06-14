@@ -10,4 +10,4 @@ install:
 script:
   - make
 env:
-  - SWIFT_VERSION=swift-3.0-PREVIEW-1 
+  - SWIFT_VERSION=swift-3.0-preview-1 
