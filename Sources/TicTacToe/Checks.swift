@@ -8,7 +8,7 @@
 
 import Foundation
 
-func whoWon(char: Character) -> String {
+func whoWon(_ char: Character) -> String {
 
     switch char {
     case "O":
@@ -29,7 +29,7 @@ func whoWon(char: Character) -> String {
 
 }
 
-func checkWinner(gameTable: [[Character]]) -> (Bool, Character) {
+func checkWinner(_ gameTable: [[Character]]) -> (Bool, Character) {
 
     let rowWinner = checkRows(gameTable)
     if rowWinner != " " {
@@ -54,9 +54,12 @@ func checkWinner(gameTable: [[Character]]) -> (Bool, Character) {
     return (false, " ")
 }
 
-func checkRows(table: [[Character]]) -> Character {
+func checkRows(_ table: [[Character]]) -> Character {
     for row in 0..<3 {
-        if (table[row][0]==table[row][1] && table[row][1]==table[row][2]) && table[row][0] != " " {
+        let condition1 = table[row][0] == table[row][1]
+        let condition2 = table[row][1] == table[row][2]
+        let condition3 = table[row][0] != " "
+        if condition1 && condition2 && condition3 {
             return table[row][0]
         }
     }
@@ -64,9 +67,12 @@ func checkRows(table: [[Character]]) -> Character {
 }
 
 
-func checkCols(table: [[Character]]) -> Character {
+func checkCols(_ table: [[Character]]) -> Character {
     for col in 0..<3 {
-        if (table[0][col]==table[1][col] && table[1][col]==table[2][col]) && table[0][col] != " " {
+        let condition1 = table[0][col] == table[1][col]
+        let condition2 = table[1][col] == table[2][col]
+        let condition3 = table[0][col] != " "
+        if condition1 && condition2 && condition3 {
             return table[0][col]
         }
     }
@@ -74,15 +80,15 @@ func checkCols(table: [[Character]]) -> Character {
 }
 
 
-func checkMainDiagonal(table: [[Character]]) -> Character {
-    if table[0][0]==table[1][1] && table[1][1]==table[2][2] {
+func checkMainDiagonal(_ table: [[Character]]) -> Character {
+    if table[0][0] == table[1][1] && table[1][1] == table[2][2] {
         return table[1][1]
     }
     return " "
 }
 
-func checkSecondaryDiagonal(table: [[Character]] ) -> Character {
-    if table[0][2]==table[1][1] && table[1][1]==table[2][0] {
+func checkSecondaryDiagonal(_ table: [[Character]] ) -> Character {
+    if table[0][2] == table[1][1] && table[1][1] == table[2][0] {
         return table[1][1]
     }
     return " "
@@ -90,7 +96,7 @@ func checkSecondaryDiagonal(table: [[Character]] ) -> Character {
 
 
 // Checks if the Game Table is fully occupied
-func isFull(table: [[Character]]) -> Bool {
+func isFull(_ table: [[Character]]) -> Bool {
 
     for i in 0..<3 {
         for j in 0..<3 {

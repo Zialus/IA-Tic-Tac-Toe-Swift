@@ -43,7 +43,7 @@ func readCharacterFromUser() -> Character? {
 
     print("Pick your weapon!\nPress (O) for Circle\t Press (X) for Cross: ", terminator:"")
 
-    if let userInput = readLine(stripNewline: true) {
+    if let userInput = readLine(strippingNewline: true) {
         if userInput == "O" {
             return "O"
         }
@@ -58,7 +58,7 @@ func whoGoesFirst() -> Character? {
 
     print("Pick who goes first:\nPress (C) for Computer\t Press (P) for Player: ", terminator:"")
 
-    if let userInput = readLine(stripNewline: true) {
+    if let userInput = readLine(strippingNewline: true) {
         if userInput == "C" {
             return "C"
         }
@@ -74,9 +74,9 @@ func readPositionsFromUser() -> (row: Int, col: Int)? {
 
     print("Introduce row and col separed by a space: ", terminator:"")
 
-    if let userInput = readLine(stripNewline: true) {
+    if let userInput = readLine(strippingNewline: true) {
 
-        var piecePlacemente = userInput.characters.split(" ").map(String.init)
+        var piecePlacemente = userInput.characters.split(separator:" ").map(String.init)
 
         if piecePlacemente.count == 2 {
             if let row = Int(piecePlacemente[0]), let col = Int(piecePlacemente[1]) {
@@ -104,7 +104,7 @@ func readIsAlphaBeta() -> Character? {
 
     print("Do you want to use Alpha-Beta Prunning?\nPress (N) for simple MiniMax\t Press (Y) for AlphaBeta: ", terminator:"")
 
-    if let userInput = readLine(stripNewline: true) {
+    if let userInput = readLine(strippingNewline: true) {
         if userInput == "N" {
             return "N"
         }

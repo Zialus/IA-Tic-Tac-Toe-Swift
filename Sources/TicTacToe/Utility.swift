@@ -8,7 +8,7 @@
 
 import Foundation
 
-func getUtility(table: [[Character]]) -> Int {
+func getUtility(_ table: [[Character]]) -> Int {
 
     // If someone has won atribute utility acordingly
     let (bool, winnerSymbol) = checkWinner(table)
@@ -32,7 +32,7 @@ func getUtility(table: [[Character]]) -> Int {
 }
 
 // Calculates the Main Diagonal Utility
-func getMDUtility(table: [[Character]], symbol: Character) -> Int {
+func getMDUtility(_ table: [[Character]], symbol: Character) -> Int {
 
     if (table[0][0] == symbol || table[0][0] == " ") &&
         (table[1][1] == symbol || table[1][1] == " ") &&
@@ -44,7 +44,7 @@ func getMDUtility(table: [[Character]], symbol: Character) -> Int {
 }
 
 // Calculates the Secondary Diagonal Utility
-func getSDUtility(table: [[Character]], symbol: Character) -> Int {
+func getSDUtility(_ table: [[Character]], symbol: Character) -> Int {
     if (table[0][2] == symbol || table[0][2] == " ") &&
         (table[1][1] == symbol || table[1][1] == " ") &&
         (table[2][0] == symbol || table[2][0] == " ") {
@@ -55,7 +55,7 @@ func getSDUtility(table: [[Character]], symbol: Character) -> Int {
 }
 
 // Calculates the Utiity for all Rows
-func getRowUtility(table: [[Character]], symbol: Character) -> Int {
+func getRowUtility(_ table: [[Character]], symbol: Character) -> Int {
     var utility = 0
     for row in 0..<3 {
         if (table[row][0] == symbol || table[row][0] == " ") &&
@@ -68,7 +68,7 @@ func getRowUtility(table: [[Character]], symbol: Character) -> Int {
 }
 
 // Calculates the Utiity for all Columns
-func getColUtility(table: [[Character]], symbol: Character) -> Int {
+func getColUtility(_ table: [[Character]], symbol: Character) -> Int {
     var utility = 0
     for col in 0..<3 {
         if (table[0][col] == symbol || table[0][col] == " ") &&

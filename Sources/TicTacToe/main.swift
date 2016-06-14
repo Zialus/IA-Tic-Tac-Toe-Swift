@@ -18,13 +18,13 @@ var FULLDEBUG = false
 processCmdLineArgs()
 
 enum Turn {
-    case Human
-    case Computer
+    case human
+    case computer
 }
 
 let emptyChar: Character = " "
 
-let initialGameTable = Array(count: 3, repeatedValue: Array(count: 3, repeatedValue: emptyChar ))
+let initialGameTable = Array(repeating: Array(repeating: emptyChar,count: 3),count: 3)
 
 var game = State(table: initialGameTable, depth: 0, utility: 0)
 
@@ -57,9 +57,9 @@ while goesFirst == nil {
 var whosTurn: Turn
 
 if goesFirst == "P"{
-    whosTurn = Turn.Human
+    whosTurn = Turn.human
 } else {
-    whosTurn = Turn.Computer
+    whosTurn = Turn.computer
 }
 
 //--------Parse Alpha-Beta Info------//
@@ -102,7 +102,7 @@ while true {
     }
 
 
-    if whosTurn == Turn.Human {
+    if whosTurn == Turn.human {
 
         // The table for the next State starts out as a copy of the table of the current State
         var nextGameTable = game.table
@@ -141,9 +141,9 @@ while true {
 
     }
 
-    if whosTurn == Turn.Computer {
+    if whosTurn == Turn.computer {
 
-        let start = NSDate()
+        let start = Date()
 
         //        computerInputInfiniteLoop: while true{
         //
@@ -170,9 +170,12 @@ while true {
         }
 
 
-        let end = NSDate()
+        let end = Date()
         // Difference in seconds
-        let timeInterval: Double = end.timeIntervalSinceDate(start)
+
+        let timeInterval: Double = end.timeIntervalSince(start)
+
+
 
         if DEBUG {
             print("Elapsed Time: \(timeInterval) seconds")
@@ -183,10 +186,10 @@ while true {
 
     // Give the next turn to the player who didn't play this time
     switch whosTurn {
-    case Turn.Human:
-        whosTurn = Turn.Computer
-    case Turn.Computer:
-        whosTurn = Turn.Human
+    case Turn.human:
+        whosTurn = Turn.computer
+    case Turn.computer:
+        whosTurn = Turn.human
     }
     
 }

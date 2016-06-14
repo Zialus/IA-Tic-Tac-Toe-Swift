@@ -8,7 +8,7 @@
 
 import Foundation
 
-func generateSuccessors(currentState: State, nextPlayerSymbol: Character) -> [State] {
+func generateSuccessors(_ currentState: State, nextPlayerSymbol: Character) -> [State] {
 
     var successors = [State]()
     successors.reserveCapacity(10)
@@ -32,7 +32,7 @@ func generateSuccessors(currentState: State, nextPlayerSymbol: Character) -> [St
     return successors
 }
 
-func TERMINAL_TEST(someState: State) -> (Bool) {
+func TERMINAL_TEST(_ someState: State) -> (Bool) {
 
     // The game might have eneded because there are no more moves left
     if isFull(someState.table) {
@@ -48,7 +48,7 @@ func TERMINAL_TEST(someState: State) -> (Bool) {
 }
 
 
-func MINIMAX_DECISION(currentState: State) -> (State) {
+func MINIMAX_DECISION(_ currentState: State) -> (State) {
 
     let v = MAX_VALUE(currentState)
 
@@ -79,7 +79,7 @@ func MINIMAX_DECISION(currentState: State) -> (State) {
 
 
 
-func MAX_VALUE(currentState: State) -> (Int) {
+func MAX_VALUE(_ currentState: State) -> (Int) {
 
     if TERMINAL_TEST(currentState) {
         return currentState.utility
@@ -98,7 +98,7 @@ func MAX_VALUE(currentState: State) -> (Int) {
 }
 
 
-func MIN_VALUE(currentState: State) -> (Int) {
+func MIN_VALUE(_ currentState: State) -> (Int) {
 
     if TERMINAL_TEST(currentState) {
         return currentState.utility
@@ -118,7 +118,7 @@ func MIN_VALUE(currentState: State) -> (Int) {
 }
 
 
-func ALPHA_BETA_DECISION (currentState: State) -> (State) {
+func ALPHA_BETA_DECISION (_ currentState: State) -> (State) {
 
     let v = MAX_VALUE_AB(currentState, alfa: Int.min, beta: Int.max)
 
@@ -149,7 +149,7 @@ func ALPHA_BETA_DECISION (currentState: State) -> (State) {
 
 }
 
-func MAX_VALUE_AB(currentState: State, alfa: Int, beta: Int) -> (Int) {
+func MAX_VALUE_AB(_ currentState: State, alfa: Int, beta: Int) -> (Int) {
     var alfa = alfa
 
     if TERMINAL_TEST(currentState) {
@@ -172,7 +172,7 @@ func MAX_VALUE_AB(currentState: State, alfa: Int, beta: Int) -> (Int) {
     return v
 }
 
-func MIN_VALUE_AB(currentState: State, alfa: Int, beta: Int) -> (Int) {
+func MIN_VALUE_AB(_ currentState: State, alfa: Int, beta: Int) -> (Int) {
     var beta = beta
 
     if TERMINAL_TEST(currentState) {
