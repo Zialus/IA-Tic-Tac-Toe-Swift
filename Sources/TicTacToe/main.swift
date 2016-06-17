@@ -143,7 +143,7 @@ while true {
 
     if whosTurn == Turn.computer {
 
-        let start = Date()
+        let start = NSDate()
 
         //        computerInputInfiniteLoop: while true{
         //
@@ -169,13 +169,9 @@ while true {
             game = MINIMAX_DECISION(game)
         }
 
-
+        // THIS IS A SILLY TEMP FIX
         let end = Date()
-        // Difference in seconds
-
-        let timeInterval: Double = end.timeIntervalSince(start)
-
-
+        let timeInterval = abs(start.timeIntervalSinceNow)
 
         if DEBUG {
             print("Elapsed Time: \(timeInterval) seconds")
