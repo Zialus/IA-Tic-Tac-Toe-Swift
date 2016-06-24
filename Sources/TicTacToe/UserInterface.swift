@@ -1,11 +1,3 @@
-//
-//  UserInterface.swift
-//  TikTakToe
-//
-//  Created by Raul Ferreira on 3/17/16.
-//  Copyright © 2016 FCUP. All rights reserved.
-//
-
 import Foundation
 
 func processCmdLineArgs() -> () {
@@ -16,6 +8,7 @@ func processCmdLineArgs() -> () {
         print("Too many arguments!")
         exit(1)
     } else if Process.arguments.count == 2 {
+
         let onlyArg = Process.arguments[1]
 
         switch onlyArg {
@@ -69,6 +62,23 @@ func whoGoesFirst() -> Character? {
     return nil
 }
 
+func readIsAlphaBeta() -> Character? {
+
+    print("Do you want to use Alpha-Beta Prunning?\nPress (N) for simple MiniMax\t Press (Y) for AlphaBeta\t Press (R) for Random: ", terminator:"")
+
+    if let userInput = readLine(strippingNewline: true) {
+        if userInput == "N" {
+            return "N"
+        }
+        if userInput == "Y"{
+            return "Y"
+        }
+        if userInput == "R"{
+            return "R"
+        }
+    }
+    return nil
+}
 
 func readPositionsFromUser() -> (row: Int, col: Int)? {
 
@@ -82,35 +92,17 @@ func readPositionsFromUser() -> (row: Int, col: Int)? {
             if let row = Int(piecePlacemente[0]), let col = Int(piecePlacemente[1]) {
 
                 if row > 2 || row < 0  ||  col > 2 || col < 0 {
-                    print("INVALID POSITION!!!")
+                    print("POSITION IS OUT OF BOUNDS!!!")
                     return nil
                 }
 
                 return (row, col)
 
             } else {
-                print("BAD INPUT!!!")
+                print("BAD INPUT!!! You must enter two integers")
             }
         }
-
-    }
-
-    return nil
-
-}
-
-
-func readIsAlphaBeta() -> Character? {
-
-    print("Do you want to use Alpha-Beta Prunning?\nPress (N) for simple MiniMax\t Press (Y) for AlphaBeta: ", terminator:"")
-
-    if let userInput = readLine(strippingNewline: true) {
-        if userInput == "N" {
-            return "N"
-        }
-        if userInput == "Y"{
-            return "Y"
-        }
+        return nil
     }
     return nil
 }

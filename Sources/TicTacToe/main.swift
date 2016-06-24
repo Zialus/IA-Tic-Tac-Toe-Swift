@@ -1,11 +1,3 @@
-//
-//  main.swift
-//  TikTakToe
-//
-//  Created by Raul Ferreira on 3/17/16.
-//  Copyright © 2016 FCUP. All rights reserved.
-//
-
 import Foundation
 
 // VAR to store number of Nodes
@@ -24,7 +16,7 @@ enum Turn {
 
 let emptyChar: Character = " "
 
-let initialGameTable = Array(repeating: Array(repeating: emptyChar,count: 3),count: 3)
+let initialGameTable = Array(repeating: Array(repeating: emptyChar, count: 3), count: 3)
 
 var game = State(table: initialGameTable, depth: 0, utility: 0)
 
@@ -65,14 +57,27 @@ if goesFirst == "P"{
 //--------Parse Alpha-Beta Info------//
 
 var alphaBetaInfoFromUser = readIsAlphaBeta()
+
 while alphaBetaInfoFromUser == nil {
     alphaBetaInfoFromUser = readIsAlphaBeta()
 }
 
-var alphaBeta = false
+enum AlgoChoice {
+    case alphaBeta
+    case miniMax
+    case random
+}
+
+var algo = AlgoChoice.random
 if let algoInfo = alphaBetaInfoFromUser {
     if algoInfo == "Y"{
-        alphaBeta = true
+        algo = .alphaBeta
+    }
+    if algoInfo == "N"{
+        algo = .miniMax
+    }
+    if algoInfo == "R"{
+        algo = .random
     }
 }
 
@@ -132,12 +137,9 @@ while true {
                 break humanInputInfiniteLoop
             }
 
-
-
         }
 
         game = State(table: nextGameTable, depth: game.depth+1, utility: getUtility(game.table))
-
 
     }
 
@@ -145,27 +147,35 @@ while true {
 
         let start = NSDate()
 
-        //        computerInputInfiniteLoop: while true{
-        //
-        //            let row = Int(arc4random_uniform(3))
-        //            let col = Int(arc4random_uniform(3))
-        //
-        //            if gameTable[row][col] != " " {
-        //                print()
-        //                print("Can't play on a position that has already been chosen")
-        //                print()
-        //                sleep(1)
-        //                continue computerInputInfiniteLoop
-        //            } else {
-        //                gameTable[row][col] = computerSymbol
-        //                break computerInputInfiniteLoop
-        //            }
-        //
-        //        }
+        switch algo {
+        case .random:
 
-        if alphaBeta {
+            var nextGameTable = game.table
+
+            computerInputInfiniteLoop: while true{
+
+                let row = Int(arc4random_uniform(3))
+                let col = Int(arc4random_uniform(3))
+
+                if nextGameTable[row][col] != " " {
+                    print()
+                    print("Can't play on a position that has already been chosen")
+                    print()
+                    sleep(1)
+                    continue computerInputInfiniteLoop
+                } else {
+                    nextGameTable[row][col] = computerSymbol
+                    break computerInputInfiniteLoop
+                }
+
+            }
+
+            game = State(table: nextGameTable, depth: game.depth+1, utility: getUtility(game.table))
+
+
+        case .alphaBeta:
             game = ALPHA_BETA_DECISION(game)
-        } else {
+        case .miniMax:
             game = MINIMAX_DECISION(game)
         }
 
@@ -176,9 +186,8 @@ while true {
         if DEBUG {
             print("Elapsed Time: \(timeInterval) seconds")
         }
-
+        
     }
-
 
     // Give the next turn to the player who didn't play this time
     switch whosTurn {
@@ -187,5 +196,5 @@ while true {
     case Turn.computer:
         whosTurn = Turn.human
     }
-    
+
 }

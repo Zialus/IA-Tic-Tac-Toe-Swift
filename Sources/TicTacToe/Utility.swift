@@ -1,16 +1,8 @@
-//
-//  Utility.swift
-//  TikTakToe
-//
-//  Created by Raul Ferreira on 3/22/16.
-//  Copyright © 2016 FCUP. All rights reserved.
-//
-
 import Foundation
 
 func getUtility(_ table: [[Character]]) -> Int {
 
-    // If someone has won atribute utility acordingly
+    // If someone has won, atribute utility acordingly
     let (bool, winnerSymbol) = checkWinner(table)
     if bool {
         if winnerSymbol == computerSymbol {
@@ -45,6 +37,7 @@ func getMDUtility(_ table: [[Character]], symbol: Character) -> Int {
 
 // Calculates the Secondary Diagonal Utility
 func getSDUtility(_ table: [[Character]], symbol: Character) -> Int {
+
     if (table[0][2] == symbol || table[0][2] == " ") &&
         (table[1][1] == symbol || table[1][1] == " ") &&
         (table[2][0] == symbol || table[2][0] == " ") {
@@ -57,6 +50,7 @@ func getSDUtility(_ table: [[Character]], symbol: Character) -> Int {
 // Calculates the Utiity for all Rows
 func getRowUtility(_ table: [[Character]], symbol: Character) -> Int {
     var utility = 0
+
     for row in 0..<3 {
         if (table[row][0] == symbol || table[row][0] == " ") &&
             (table[row][1] == symbol || table[row][1] == " ") &&
@@ -64,12 +58,14 @@ func getRowUtility(_ table: [[Character]], symbol: Character) -> Int {
             utility+=1
         }
     }
+
     return utility
 }
 
 // Calculates the Utiity for all Columns
 func getColUtility(_ table: [[Character]], symbol: Character) -> Int {
     var utility = 0
+
     for col in 0..<3 {
         if (table[0][col] == symbol || table[0][col] == " ") &&
             (table[1][col] == symbol || table[1][col] == " ") &&
@@ -77,5 +73,6 @@ func getColUtility(_ table: [[Character]], symbol: Character) -> Int {
             utility+=1
         }
     }
+
     return utility
 }
