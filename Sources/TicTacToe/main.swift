@@ -154,8 +154,15 @@ while true {
 
             computerInputInfiniteLoop: while true{
 
-                let row = Int(arc4random_uniform(3))
-                let col = Int(arc4random_uniform(3))
+                #if os(Linux)
+                    srandom((time(nil)))
+                    let row = Int(random() % (3))
+                    srandom((time(nil)))
+                    let col = Int(random() % (3))
+                #else
+                    let row = Int(arc4random_uniform(3))
+                    let col = Int(arc4random_uniform(3))
+                #endif
 
                 if nextGameTable[row][col] != " " {
                     print()
@@ -180,7 +187,7 @@ while true {
         }
 
         // THIS IS A SILLY TEMP FIX
-        let end = Date()
+        // let end = Date()
         let timeInterval = abs(start.timeIntervalSinceNow)
 
         if DEBUG {
