@@ -155,9 +155,9 @@ while true {
             computerInputInfiniteLoop: while true{
 
                 #if os(Linux)
-                    srandom(time(nil))
+                    srandom(UInt32(time(nil)))
                     let row = Int(random() % (3))
-                    srandom(time(nil))
+                    srandom(UInt32(time(nil)))
                     let col = Int(random() % (3))
                 #else
                     let row = Int(arc4random_uniform(3))
