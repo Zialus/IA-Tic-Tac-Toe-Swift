@@ -145,6 +145,7 @@ while true {
 
     if whosTurn == Turn.computer {
 
+        // let star = Date()
         let start = NSDate()
 
         switch algo {
@@ -188,6 +189,8 @@ while true {
 
         // THIS IS A SILLY TEMP FIX
         // let end = Date()
+        // let timeInterval: Double = end.timeIntervalSince(start)
+
         let timeInterval = abs(start.timeIntervalSinceNow)
 
         if DEBUG {
@@ -195,7 +198,7 @@ while true {
         }
         
     }
-
+    
     // Give the next turn to the player who didn't play this time
     switch whosTurn {
     case Turn.human:
@@ -203,5 +206,5 @@ while true {
     case Turn.computer:
         whosTurn = Turn.human
     }
-
+    
 }
