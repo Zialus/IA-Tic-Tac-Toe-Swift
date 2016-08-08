@@ -145,15 +145,14 @@ while true {
 
     if whosTurn == Turn.computer {
 
-        // let star = Date()
-        let start = NSDate()
+        let start = Date()
 
         switch algo {
         case .random:
 
             var nextGameTable = game.table
 
-            computerInputInfiniteLoop: while true{
+            computerInputInfiniteLoop: while true {
 
                 #if os(Linux)
                     srandom(UInt32(time(nil)))
@@ -187,18 +186,15 @@ while true {
             game = MINIMAX_DECISION(game)
         }
 
-        // THIS IS A SILLY TEMP FIX
-        // let end = Date()
-        // let timeInterval: Double = end.timeIntervalSince(start)
-
-        let timeInterval = abs(start.timeIntervalSinceNow)
+        let end = Date()
+        let timeInterval = end.timeIntervalSince(start)
 
         if DEBUG {
             print("Elapsed Time: \(timeInterval) seconds")
         }
-        
+
     }
-    
+
     // Give the next turn to the player who didn't play this time
     switch whosTurn {
     case Turn.human:
@@ -206,5 +202,5 @@ while true {
     case Turn.computer:
         whosTurn = Turn.human
     }
-    
+
 }

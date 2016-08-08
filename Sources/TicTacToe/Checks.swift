@@ -97,6 +97,6 @@ func isFull(_ table: [[Character]]) -> Bool {
             }
         }
     }
-    
+
     return true
 }
