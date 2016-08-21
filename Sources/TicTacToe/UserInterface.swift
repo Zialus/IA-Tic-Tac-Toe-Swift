@@ -4,12 +4,12 @@ func processCmdLineArgs() -> () {
 
     print("Welcome to the best Tic Tac Toe implementation in swift ever!\n")
 
-    if Process.arguments.count > 2 {
+    if CommandLine.arguments.count > 2 {
         print("Too many arguments!")
         exit(1)
-    } else if Process.arguments.count == 2 {
+    } else if CommandLine.arguments.count == 2 {
 
-        let onlyArg = Process.arguments[1]
+        let onlyArg = CommandLine.arguments[1]
 
         switch onlyArg {
         case "debug":
