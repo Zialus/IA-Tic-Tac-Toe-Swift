@@ -39,7 +39,6 @@ func TERMINAL_TEST(_ someState: State) -> (Bool) {
 
 }
 
-
 func MINIMAX_DECISION(_ currentState: State) -> (State) {
 
     let v = MAX_VALUE(currentState)
@@ -70,7 +69,6 @@ func MINIMAX_DECISION(_ currentState: State) -> (State) {
 }
 
 
-
 func MAX_VALUE(_ currentState: State) -> (Int) {
 
     if TERMINAL_TEST(currentState) {
@@ -88,7 +86,6 @@ func MAX_VALUE(_ currentState: State) -> (Int) {
 
     return v
 }
-
 
 func MIN_VALUE(_ currentState: State) -> (Int) {
 
@@ -108,7 +105,6 @@ func MIN_VALUE(_ currentState: State) -> (Int) {
     return v
 
 }
-
 
 func ALPHA_BETA_DECISION (_ currentState: State) -> (State) {
 
@@ -134,7 +130,6 @@ func ALPHA_BETA_DECISION (_ currentState: State) -> (State) {
             bestUtilitySoFar = s.utility
         }
     }
-
 
     // TODO: try to make this safer - Part2
     return chosenSuccessor!
@@ -183,7 +178,7 @@ func MIN_VALUE_AB(_ currentState: State, alfa: Int, beta: Int) -> (Int) {
         }
         beta = min(beta, v)
     }
-    
+
     return v
-    
+
 }

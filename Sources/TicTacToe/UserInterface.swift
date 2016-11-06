@@ -40,7 +40,7 @@ func readCharacterFromUser() -> Character? {
         if userInput == "O" {
             return "O"
         }
-        if userInput == "X"{
+        if userInput == "X" {
             return "X"
         }
     }
@@ -55,7 +55,7 @@ func whoGoesFirst() -> Character? {
         if userInput == "C" {
             return "C"
         }
-        if userInput == "P"{
+        if userInput == "P" {
             return "P"
         }
     }
@@ -70,10 +70,10 @@ func readIsAlphaBeta() -> Character? {
         if userInput == "N" {
             return "N"
         }
-        if userInput == "Y"{
+        if userInput == "Y" {
             return "Y"
         }
-        if userInput == "R"{
+        if userInput == "R" {
             return "R"
         }
     }
