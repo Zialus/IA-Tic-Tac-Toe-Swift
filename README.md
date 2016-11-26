@@ -35,8 +35,8 @@ on the terminal
 ./TicTacToe
 ```
 
-For aditional debug functionality you can run the program with one of the
-following paremeters:
+For additional debug functionality you can run the program with one of the
+following parameters:
 
 -   `debug`
 -   `fulldebug`
