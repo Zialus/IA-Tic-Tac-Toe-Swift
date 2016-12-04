@@ -23,7 +23,6 @@ var game = State(table: initialGameTable, depth: 0, utility: 0)
 let humanSymbol: Character
 let computerSymbol: Character
 
-
 //---Parse which Char Symbol the user inputed and deduce the Char for the Computer from it---//
 var charFromUser: Character?
 
@@ -106,7 +105,6 @@ while true {
         exit(0)
     }
 
-
     if whosTurn == Turn.human {
 
         // The table for the next State starts out as a copy of the table of the current State
@@ -178,7 +176,6 @@ while true {
             }
 
             game = State(table: nextGameTable, depth: game.depth+1, utility: getUtility(game.table))
-
 
         case .alphaBeta:
             game = ALPHA_BETA_DECISION(game)

@@ -58,7 +58,6 @@ func checkRows(_ table: [[Character]]) -> Character {
     return " "
 }
 
-
 func checkCols(_ table: [[Character]]) -> Character {
     for col in 0..<3 {
         let condition1 = table[0][col] == table[1][col]
@@ -70,7 +69,6 @@ func checkCols(_ table: [[Character]]) -> Character {
     }
     return " "
 }
-
 
 func checkMainDiagonal(_ table: [[Character]]) -> Character {
     if table[0][0] == table[1][1] && table[1][1] == table[2][2] {
@@ -85,7 +83,6 @@ func checkSecondaryDiagonal(_ table: [[Character]] ) -> Character {
     }
     return " "
 }
-
 
 // Checks if the Game Table is fully occupied
 func isFull(_ table: [[Character]]) -> Bool {

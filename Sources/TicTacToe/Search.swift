@@ -68,7 +68,6 @@ func MINIMAX_DECISION(_ currentState: State) -> (State) {
 
 }
 
-
 func MAX_VALUE(_ currentState: State) -> (Int) {
 
     if TERMINAL_TEST(currentState) {
