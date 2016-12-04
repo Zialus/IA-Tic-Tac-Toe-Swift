@@ -3,5 +3,5 @@ all:
 	mv ./.build/release/TicTacToe .
 
 clean:
+	swift build --clean
 	if [ -f ./TicTacToe ]; then rm ./TicTacToe; fi
-	if [ -d ./.build/ ]; then rm -rf ./.build/; fi
