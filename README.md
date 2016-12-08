@@ -11,7 +11,7 @@ A `swift` implementation of Tic-Tac-Toe.
 [platform-badge]: https://img.shields.io/badge/Platforms-OS%20X%20--%20Linux-lightgray.svg?style=flat
 [platform-url]: https://swift.org
 [travis-badge]: https://travis-ci.org/Zialus/Tic-Tac-Toe-Swift.svg?branch=master
-[travis-url]: https://travis-ci.org/Zialus/Tic-Tac-Toe-Swift.svg
+[travis-url]: https://travis-ci.org/Zialus/Tic-Tac-Toe-Swift
 
 The decision making process for the computer moves is taken care by a
 straightforward `MiniMax` (with and without `Alpha-Beta Pruning`)
