@@ -1,5 +1,5 @@
 all:
-	swift build -c release -Xswiftc -O
+	swift build -Xswiftc -O -c release
 	mv ./.build/release/TicTacToe .
 
 clean:
