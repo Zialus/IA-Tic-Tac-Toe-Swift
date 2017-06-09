@@ -5,3 +5,6 @@ all:
 clean:
 	swift package clean
 	if [ -f ./TicTacToe ]; then rm ./TicTacToe; fi
+
+test:
+	./TicTacToe < ./Input/example.txt
