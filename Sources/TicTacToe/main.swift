@@ -32,7 +32,7 @@ repeat {
 
 humanSymbol = charFromUser!
 
-if charFromUser == "O"{
+if charFromUser == "O" {
     computerSymbol = "X"
 } else {
     computerSymbol = "O"
@@ -47,7 +47,7 @@ while goesFirst == nil {
 
 var whosTurn: Turn
 
-if goesFirst == "P"{
+if goesFirst == "P" {
     whosTurn = Turn.human
 } else {
     whosTurn = Turn.computer
@@ -69,13 +69,13 @@ enum AlgoChoice {
 
 var algo = AlgoChoice.random
 if let algoInfo = alphaBetaInfoFromUser {
-    if algoInfo == "Y"{
+    if algoInfo == "Y" {
         algo = .alphaBeta
     }
-    if algoInfo == "N"{
+    if algoInfo == "N" {
         algo = .miniMax
     }
-    if algoInfo == "R"{
+    if algoInfo == "R" {
         algo = .random
     }
 }

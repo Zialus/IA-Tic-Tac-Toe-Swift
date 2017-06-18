@@ -1,6 +1,6 @@
 import Foundation
 
-func processCmdLineArgs() -> () {
+func processCmdLineArgs() {
 
     print("Welcome to the best Tic Tac Toe implementation in swift ever!\n")
 

@@ -11,7 +11,7 @@ func getUtility(_ table: [[Character]]) -> Int {
         if winnerSymbol == humanSymbol {
             return -100
         }
-        //There are no more cases but whatever
+        // There are no more cases but whatever
     }
 
     // Otherwise calculate utility the usual way
