@@ -34,7 +34,7 @@ func processCmdLineArgs() -> () {
 
 func readCharacterFromUser() -> Character? {
 
-    print("Pick your weapon!\nPress (O) for Circle\t Press (X) for Cross: ", terminator:"")
+    print("\nPick your weapon!\nPress (O) for Circle\t Press (X) for Cross: ", terminator:"")
 
     if let userInput = readLine(strippingNewline: true) {
         if userInput == "O" {
@@ -49,7 +49,7 @@ func readCharacterFromUser() -> Character? {
 
 func whoGoesFirst() -> Character? {
 
-    print("Pick who goes first:\nPress (C) for Computer\t Press (P) for Player: ", terminator:"")
+    print("\nPick who goes first.\nPress (C) for Computer\t Press (P) for Player: ", terminator:"")
 
     if let userInput = readLine(strippingNewline: true) {
         if userInput == "C" {
@@ -64,7 +64,7 @@ func whoGoesFirst() -> Character? {
 
 func readIsAlphaBeta() -> Character? {
 
-    print("Do you want to use Alpha-Beta Prunning?\nPress (N) for simple MiniMax\t Press (Y) for AlphaBeta\t Press (R) for Random: ", terminator:"")
+    print("\nDo you want to use Alpha-Beta Prunning?\nPress (N) for simple MiniMax\t Press (Y) for AlphaBeta\t Press (R) for Random: ", terminator:"")
 
     if let userInput = readLine(strippingNewline: true) {
         if userInput == "N" {

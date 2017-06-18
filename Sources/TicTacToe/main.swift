@@ -83,7 +83,9 @@ if let algoInfo = alphaBetaInfoFromUser {
 //Infite loop where the playing of the Tic Tac Toe actually happens
 while true {
 
+    print()
     game.prettyPrint()
+    print()
 
     if DEBUG {
         print("Nodes generated so far \(totalNodes)")
