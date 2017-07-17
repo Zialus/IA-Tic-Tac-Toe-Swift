@@ -5,7 +5,7 @@ func crossPlatformRandom(upperBound n: UInt32) -> Int {
 
     #if os(Linux)
         srandom(UInt32(time(nil)))
-        rand = (random() % (n))
+        rand = (UInt32(random()) % (n))
     #else
         rand = (arc4random_uniform(n))
     #endif
