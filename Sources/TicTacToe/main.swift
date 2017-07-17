@@ -114,17 +114,7 @@ while true {
 
         humanInputInfiniteLoop: while true {
 
-            var inputTuple = readPositionsFromUser()
-
-            while inputTuple == nil {
-                print()
-                print("Pay attention!")
-                print()
-                sleep(1)
-                inputTuple = readPositionsFromUser()
-            }
-
-            let (row, col) = inputTuple!
+            let (row, col) = readPositionsContinously()
 
             if nextGameTable[row][col] != " " {
                 print()
