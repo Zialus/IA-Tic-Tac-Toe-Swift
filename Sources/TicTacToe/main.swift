@@ -40,9 +40,9 @@ if charFromUser == "O" {
 
 //--------Parse who should play first------//
 
-var goesFirst = whoGoesFirst()
+var goesFirst = readWhoGoesFirst()
 while goesFirst == nil {
-    goesFirst = whoGoesFirst()
+    goesFirst = readWhoGoesFirst()
 }
 
 var whosTurn: Turn
@@ -55,10 +55,10 @@ if goesFirst == "P" {
 
 //--------Parse Alpha-Beta Info------//
 
-var alphaBetaInfoFromUser = readIsAlphaBeta()
+var alphaBetaInfoFromUser = readAlgorithmChoice()
 
 while alphaBetaInfoFromUser == nil {
-    alphaBetaInfoFromUser = readIsAlphaBeta()
+    alphaBetaInfoFromUser = readAlgorithmChoice()
 }
 
 enum AlgoChoice {

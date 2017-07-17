@@ -43,11 +43,15 @@ func readCharacterFromUser() -> Character? {
         if userInput == "X" {
             return "X"
         }
+
+        return nil
+    } else {
+        print("Something went horribily wrong while reading your input")
+        exit(1)
     }
-    return nil
 }
 
-func whoGoesFirst() -> Character? {
+func readWhoGoesFirst() -> Character? {
 
     print("\nPick who goes first.\nPress (C) for Computer\t Press (P) for Player: ", terminator:"")
 
@@ -58,11 +62,15 @@ func whoGoesFirst() -> Character? {
         if userInput == "P" {
             return "P"
         }
+
+        return nil
+    } else {
+        print("Something went horribily wrong while reading your input")
+        exit(1)
     }
-    return nil
 }
 
-func readIsAlphaBeta() -> Character? {
+func readAlgorithmChoice() -> Character? {
 
     print("\nDo you want to use Alpha-Beta Prunning?\nPress (N) for simple MiniMax\t Press (Y) for AlphaBeta\t Press (R) for Random: ", terminator:"")
 
@@ -76,8 +84,12 @@ func readIsAlphaBeta() -> Character? {
         if userInput == "R" {
             return "R"
         }
+
+        return nil
+    } else {
+        print("Something went horribily wrong while reading your input")
+        exit(1)
     }
-    return nil
 }
 
 func readPositionsFromUser() -> (row: Int, col: Int)? {
