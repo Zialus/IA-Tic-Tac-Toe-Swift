@@ -16,15 +16,14 @@ class State {
     }
 
     func prettyPrint() {
-        print("+---+---+---+")
         for i in 0..<3 {
-            print("|", terminator:"")
-            for j in 0..<2 {
-                print(" \(table[i][j]) |", terminator:"")
-            }
-            print(" \(table[i][2])", terminator: " |\n")
             print("+---+---+---+")
+            for j in 0..<3 {
+                print("| \(table[i][j]) ", terminator:"")
+            }
+            print("|")
         }
+        print("+---+---+---+")
     }
 
 }
