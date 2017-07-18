@@ -9,13 +9,11 @@ func generateSuccessors(_ currentState: State, nextPlayerSymbol: Character) -> [
     let fatherDepth = currentState.depth
 
     for i in 0..<3 {
-        for j in 0..<3 {
-            if fatherTable[i][j] == " " {
-                var childTable = fatherTable
-                childTable[i][j] = nextPlayerSymbol
-                let childState = State(table: childTable, depth: fatherDepth+1, utility: getUtility(childTable))
-                successors.append(childState)
-            }
+        for j in 0..<3 where fatherTable[i][j] == " " {
+            var childTable = fatherTable
+            childTable[i][j] = nextPlayerSymbol
+            let childState = State(table: childTable, depth: fatherDepth+1, utility: getUtility(childTable))
+            successors.append(childState)
         }
     }
 

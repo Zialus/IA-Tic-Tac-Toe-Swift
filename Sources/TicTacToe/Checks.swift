@@ -77,7 +77,7 @@ func checkMainDiagonal(_ table: [[Character]]) -> Character {
     return " "
 }
 
-func checkSecondaryDiagonal(_ table: [[Character]] ) -> Character {
+func checkSecondaryDiagonal(_ table: [[Character]]) -> Character {
     if table[0][2] == table[1][1] && table[1][1] == table[2][0] {
         return table[1][1]
     }
@@ -88,10 +88,8 @@ func checkSecondaryDiagonal(_ table: [[Character]] ) -> Character {
 func isFull(_ table: [[Character]]) -> Bool {
 
     for i in 0..<3 {
-        for j in 0..<3 {
-            if table[i][j] == " " {
-                return false
-            }
+        for j in 0..<3 where table[i][j] == " " {
+            return false
         }
     }
 
