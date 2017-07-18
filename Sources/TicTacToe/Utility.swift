@@ -27,9 +27,9 @@ func getUtility(_ table: [[Character]]) -> Int {
 func getMDUtility(_ table: [[Character]], symbol: Character) -> Int {
 
     if (table[0][0] == symbol || table[0][0] == " ") &&
-        (table[1][1] == symbol || table[1][1] == " ") &&
-        (table[2][2] == symbol || table[2][2] == " ") {
-        return 1
+       (table[1][1] == symbol || table[1][1] == " ") &&
+       (table[2][2] == symbol || table[2][2] == " ") {
+           return 1
     }
 
     return 0
@@ -39,9 +39,9 @@ func getMDUtility(_ table: [[Character]], symbol: Character) -> Int {
 func getSDUtility(_ table: [[Character]], symbol: Character) -> Int {
 
     if (table[0][2] == symbol || table[0][2] == " ") &&
-        (table[1][1] == symbol || table[1][1] == " ") &&
-        (table[2][0] == symbol || table[2][0] == " ") {
-        return 1
+       (table[1][1] == symbol || table[1][1] == " ") &&
+       (table[2][0] == symbol || table[2][0] == " ") {
+            return 1
     }
 
     return 0
@@ -53,9 +53,9 @@ func getRowUtility(_ table: [[Character]], symbol: Character) -> Int {
 
     for row in 0..<3 {
         if (table[row][0] == symbol || table[row][0] == " ") &&
-            (table[row][1] == symbol || table[row][1] == " ") &&
-            (table[row][2] == symbol || table[row][2] == " ") {
-            utility+=1
+           (table[row][1] == symbol || table[row][1] == " ") &&
+           (table[row][2] == symbol || table[row][2] == " ") {
+               utility+=1
         }
     }
 
@@ -68,9 +68,9 @@ func getColUtility(_ table: [[Character]], symbol: Character) -> Int {
 
     for col in 0..<3 {
         if (table[0][col] == symbol || table[0][col] == " ") &&
-            (table[1][col] == symbol || table[1][col] == " ") &&
-            (table[2][col] == symbol || table[2][col] == " ") {
-            utility+=1
+           (table[1][col] == symbol || table[1][col] == " ") &&
+           (table[2][col] == symbol || table[2][col] == " ") {
+               utility+=1
         }
     }
 

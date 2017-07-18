@@ -80,7 +80,7 @@ if let algoInfo = alphaBetaInfoFromUser {
     }
 }
 
-//Infite loop where the playing of the Tic Tac Toe actually happens
+// Infite loop where the playing of the Tic Tac Toe actually happens
 while true {
 
     print()

@@ -19,7 +19,7 @@ class State {
         for i in 0..<3 {
             print("+---+---+---+")
             for j in 0..<3 {
-                print("| \(table[i][j]) ", terminator:"")
+                print("| \(table[i][j]) ", terminator: "")
             }
             print("|")
         }

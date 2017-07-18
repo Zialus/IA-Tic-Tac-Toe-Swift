@@ -119,10 +119,12 @@ func readPositionsFromUser() -> (row: Int, col: Int)? {
     return nil
 }
 
-func readPositionsContinously() -> (Int,Int) {
+func readPositionsContinously() -> (Int, Int) {
 
     while true {
-        if let inputTuple = readPositionsFromUser() { return inputTuple }
+        if let inputTuple = readPositionsFromUser() {
+            return inputTuple
+        }
         print()
         print("Pay attention!")
         print()

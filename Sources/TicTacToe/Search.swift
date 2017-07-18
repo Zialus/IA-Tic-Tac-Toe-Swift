@@ -48,7 +48,7 @@ func MINIMAX_DECISION(_ currentState: State) -> (State) {
 
     var bestUtilitySoFar = Int.min
     if FULLDEBUG {
-        print("number of successors:", terminator:"")
+        print("number of successors:", terminator: "")
         print(currentState.successors!.count)
         print("Value we are searching for: \(v)...")
     }
@@ -105,7 +105,7 @@ func MIN_VALUE(_ currentState: State) -> (Int) {
 
 }
 
-func ALPHA_BETA_DECISION (_ currentState: State) -> (State) {
+func ALPHA_BETA_DECISION(_ currentState: State) -> (State) {
 
     let v = MAX_VALUE_AB(currentState, alfa: Int.min, beta: Int.max)
 
@@ -115,7 +115,7 @@ func ALPHA_BETA_DECISION (_ currentState: State) -> (State) {
     var bestUtilitySoFar = Int.min
 
     if FULLDEBUG {
-        print("number of successors:", terminator:"")
+        print("number of successors:", terminator: "")
         print(currentState.successors!.count)
         print("Value we are searching for: \(v)...")
     }
