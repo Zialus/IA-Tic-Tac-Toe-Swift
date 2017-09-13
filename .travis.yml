@@ -1,5 +1,5 @@
 language: generic
-env: SWIFT_VERSION=4.0-DEVELOPMENT-SNAPSHOT-2017-07-26-a
+env: SWIFT_VERSION=4.0-DEVELOPMENT-SNAPSHOT-2017-09-11-a
 
 matrix:
   include:
