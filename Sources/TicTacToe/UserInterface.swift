@@ -98,7 +98,7 @@ func readPositionsFromUser() -> (row: Int, col: Int)? {
 
     if let userInput = readLine(strippingNewline: true) {
 
-        var piecePlacemente = userInput.characters.split(separator:" ").map(String.init)
+        var piecePlacemente = userInput.split(separator:" ").map(String.init)
 
         if piecePlacemente.count == 2 {
             if let row = Int(piecePlacemente[0]), let col = Int(piecePlacemente[1]) {
