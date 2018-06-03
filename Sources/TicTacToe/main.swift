@@ -144,8 +144,8 @@ while true {
 
             computerInputInfiniteLoop: while true {
 
-                let row = crossPlatformRandom(upperBound: 3)
-                let col = crossPlatformRandom(upperBound: 3)
+                let row = Int.random(in: 0..<3)
+                let col = Int.random(in: 0..<3)
 
                 if nextGameTable[row][col] != " " {
                     print()
