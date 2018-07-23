@@ -1,13 +1,13 @@
 language: generic
-env: SWIFT_VERSION=4.2-DEVELOPMENT-SNAPSHOT-2018-06-02-a
+env: SWIFT_VERSION=4.2-DEVELOPMENT-SNAPSHOT-2018-06-04-a
 
 matrix:
   include:
     - os: linux
       sudo: required
-      dist: trusty
+      dist: xenial
     - os: osx
-      osx_image: xcode9
+      osx_image: xcode9.2
 
 install:
   - eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
