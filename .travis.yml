@@ -1,5 +1,5 @@
 language: generic
-env: SWIFT_VERSION=4.2
+env: SWIFT_VERSION=4.2.1
 
 matrix:
   include:
@@ -7,7 +7,7 @@ matrix:
       sudo: required
       dist: xenial
     - os: osx
-      osx_image: xcode10
+      osx_image: xcode10.1
 
 install:
   - eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"

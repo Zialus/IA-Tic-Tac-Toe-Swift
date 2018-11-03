@@ -6,7 +6,7 @@ all:
 	cp ./.build/release/$(EXEC) .
 
 clean:
-	swift package clean
+	swift package reset
 	if [ -f ./$(EXEC) ]; then rm ./$(EXEC); fi
 
 test: player_first computer_first player_first_AB computer_first_AB
