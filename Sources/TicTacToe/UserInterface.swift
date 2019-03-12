@@ -15,12 +15,10 @@ func processCmdLineArgs() {
         case "debug":
             print("debug mode is ON!")
             DEBUG=true
-            break
         case "fulldebug":
             print("full debug mode is ON!!!")
             DEBUG=true
             FULLDEBUG=true
-            break
         default:
             print("LOLWUT!? \"\(onlyArg)\": is an unrecognized argument")
             exit(1)
@@ -34,7 +32,7 @@ func processCmdLineArgs() {
 
 func readCharacterFromUser() -> Character? {
 
-    print("\nPick your weapon!\nPress (O) for Circle\t Press (X) for Cross: ", terminator:"")
+    print("\nPick your weapon!\nPress (O) for Circle\t Press (X) for Cross: ", terminator: "")
 
     if let userInput = readLine(strippingNewline: true) {
         if userInput == "O" {
@@ -53,7 +51,7 @@ func readCharacterFromUser() -> Character? {
 
 func readWhoGoesFirst() -> Character? {
 
-    print("\nPick who goes first.\nPress (C) for Computer\t Press (P) for Player: ", terminator:"")
+    print("\nPick who goes first.\nPress (C) for Computer\t Press (P) for Player: ", terminator: "")
 
     if let userInput = readLine(strippingNewline: true) {
         if userInput == "C" {
@@ -72,7 +70,7 @@ func readWhoGoesFirst() -> Character? {
 
 func readAlgorithmChoice() -> Character? {
 
-    print("\nDo you want to use Alpha-Beta Prunning?\nPress (N) for simple MiniMax\t Press (Y) for AlphaBeta\t Press (R) for Random: ", terminator:"")
+    print("\nDo you want to use Alpha-Beta Prunning?\nPress (N) for simple MiniMax\t Press (Y) for AlphaBeta\t Press (R) for Random: ", terminator: "")
 
     if let userInput = readLine(strippingNewline: true) {
         if userInput == "N" {
@@ -94,11 +92,11 @@ func readAlgorithmChoice() -> Character? {
 
 func readPositionsFromUser() -> (row: Int, col: Int)? {
 
-    print("Introduce row and col separed by a space: ", terminator:"")
+    print("Introduce row and col separed by a space: ", terminator: "")
 
     if let userInput = readLine(strippingNewline: true) {
 
-        var piecePlacemente = userInput.split(separator:" ").map(String.init)
+        var piecePlacemente = userInput.split(separator: " ").map(String.init)
 
         if piecePlacemente.count == 2 {
             if let row = Int(piecePlacemente[0]), let col = Int(piecePlacemente[1]) {

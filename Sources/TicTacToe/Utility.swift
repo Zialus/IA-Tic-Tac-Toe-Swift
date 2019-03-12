@@ -15,10 +15,10 @@ func getUtility(_ table: [[Character]]) -> Int {
     }
 
     // Otherwise calculate utility the usual way
-    let mdUtil = getMDUtility(table, symbol: computerSymbol)  - getMDUtility(table, symbol:humanSymbol)
-    let sdUtil = getSDUtility(table, symbol: computerSymbol)  - getSDUtility(table, symbol:humanSymbol)
-    let roUtil = getRowUtility(table, symbol: computerSymbol) - getRowUtility(table, symbol:humanSymbol)
-    let coUtil = getColUtility(table, symbol: computerSymbol) - getColUtility(table, symbol:humanSymbol)
+    let mdUtil = getMDUtility(table, symbol: computerSymbol)  - getMDUtility(table, symbol: humanSymbol)
+    let sdUtil = getSDUtility(table, symbol: computerSymbol)  - getSDUtility(table, symbol: humanSymbol)
+    let roUtil = getRowUtility(table, symbol: computerSymbol) - getRowUtility(table, symbol: humanSymbol)
+    let coUtil = getColUtility(table, symbol: computerSymbol) - getColUtility(table, symbol: humanSymbol)
 
     return mdUtil+sdUtil+roUtil+coUtil
 }

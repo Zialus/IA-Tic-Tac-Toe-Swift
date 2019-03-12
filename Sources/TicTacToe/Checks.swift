@@ -87,8 +87,8 @@ func checkSecondaryDiagonal(_ table: [[Character]]) -> Character {
 // Checks if the Game Table is fully occupied
 func isFull(_ table: [[Character]]) -> Bool {
 
-    for i in 0..<3 {
-        for j in 0..<3 where table[i][j] == " " {
+    for row in 0..<3 {
+        for col in 0..<3 where table[row][col] == " " {
             return false
         }
     }
