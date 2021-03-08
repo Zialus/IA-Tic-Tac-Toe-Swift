@@ -1,5 +1,5 @@
 language: generic
-env: SWIFT_VERSION=5.2.2
+env: SWIFT_VERSION=5.3.3
 
 jobs:
   include:
@@ -9,12 +9,21 @@ jobs:
     - os: linux
       dist: bionic
       name: Ubuntu 18.04
+    - os: linux
+      dist: focal
+      name: Ubuntu 20.04
+    - os: osx
+      osx_image: xcode10.1
+      name: High Sierra
     - os: osx
       osx_image: xcode11.3
       name: Mojave
     - os: osx
-      osx_image: xcode11.4
+      osx_image: xcode12.2
       name: Catalina
+    - os: osx
+      osx_image: xcode12.4
+      name: Big Sur
 
 install:
   - eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"

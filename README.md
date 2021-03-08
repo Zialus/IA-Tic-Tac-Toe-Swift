@@ -8,7 +8,7 @@ A `swift` implementation of Tic-Tac-Toe.
 [![Quality Gate Status][sonar-badge]][sonar-url]
 [![Travis][travis-badge]][travis-url]
 
-[swift-badge]: https://img.shields.io/badge/Swift-5.2-orange.svg?style=flat
+[swift-badge]: https://img.shields.io/badge/Swift-5.X-orange.svg?style=flat
 [swift-url]: https://swift.org
 [platform-badge]: https://img.shields.io/badge/Platforms-macOS%20--%20Linux-blue.svg?style=flat
 [platform-url]: https://swift.org
