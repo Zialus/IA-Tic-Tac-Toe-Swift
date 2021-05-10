@@ -1,11 +1,11 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.4
 
 import PackageDescription
 
 let package = Package(
     name: "TicTacToe",
     targets: [
-        .target(
+        .executableTarget(
             name: "TicTacToe"
         )
     ]
