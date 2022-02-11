@@ -1,5 +1,5 @@
 language: generic
-env: SWIFT_VERSION=5.5
+env: SWIFT_VERSION=5.5.2
 
 jobs:
   include:
