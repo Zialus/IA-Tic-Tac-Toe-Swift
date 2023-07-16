@@ -16,9 +16,6 @@ jobs:
       matrix:
         os: [ubuntu-20.04, ubuntu-22.04, macos-11, macos-12, macos-13]
         swift: ["5.8"]
-        include:
-        - os: windows-10
-          swift: "5.6.3"
 
     steps:
       - name: Checkout
