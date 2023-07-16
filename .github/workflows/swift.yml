@@ -14,12 +14,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-18.04, ubuntu-20.04, macos-10.15, macos-11.0]
-        swift: ["5.5.2"]
+        os: [ubuntu-20.04, ubuntu-22.04, macos-11, macos-12, macos-13]
+        swift: ["5.8"]
+        include:
+        - os: windows-10
+          swift: "5.6.3"
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup Swift
         uses: fwal/setup-swift@v1
         with:
