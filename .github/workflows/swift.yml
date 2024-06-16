@@ -14,14 +14,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-20.04, ubuntu-22.04, macos-11, macos-12, macos-13]
-        swift: ["5.8"]
+        os: [ubuntu-20.04, ubuntu-22.04, macos-11, macos-12, macos-13, macos-14]
+        swift: ["5.10"]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Swift
-        uses: fwal/setup-swift@v1
+        uses: fwal/setup-swift@v2
         with:
           swift-version: ${{ matrix.swift }}
       - name: Confirm Swift version
