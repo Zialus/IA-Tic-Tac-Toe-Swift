@@ -4,16 +4,19 @@ A `swift` implementation of Tic-Tac-Toe.
 
 [![Swift][swift-badge]][swift-url]
 [![Platform][platform-badge]][platform-url]
+[![CI Pipeline][gha-badge]][gha-url]
 
 [![Quality Gate Status][sonar-badge]][sonar-url]
-[![Travis][travis-badge]][travis-url]
 
-[swift-badge]: https://img.shields.io/badge/Swift-5.X-orange.svg?style=flat
+[swift-badge]: https://img.shields.io/badge/Swift-5.10-orange.svg?style=flat
 [swift-url]: https://swift.org
+
 [platform-badge]: https://img.shields.io/badge/Platforms-macOS%20--%20Linux-blue.svg?style=flat
 [platform-url]: https://swift.org
-[travis-badge]: https://travis-ci.org/Zialus/IA-Tic-Tac-Toe-Swift.svg?branch=master
-[travis-url]: https://travis-ci.org/Zialus/IA-Tic-Tac-Toe-Swift
+
+[gha-badge]: https://github.com/Zialus/IA-Tic-Tac-Toe-Swift/actions/workflows/swift.yml/badge.svg
+[gha-url]: https://github.com/Zialus/IA-Tic-Tac-Toe-Swift/actions/workflows/swift.yml
+
 [sonar-badge]: https://sonarcloud.io/api/project_badges/measure?project=Zialus_IA-Tic-Tac-Toe-Swift&metric=alert_status
 [sonar-url]: https://sonarcloud.io/dashboard?id=Zialus_IA-Tic-Tac-Toe-Swift
 
@@ -47,7 +50,7 @@ following parameters:
 -   `debug`
 -   `fulldebug`
 
-**For example:**
+**Example:**
 
 ``` bash
 ./TicTacToe debug
