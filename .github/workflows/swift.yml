@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Swift
-        uses: NeedleInAJayStack/setup-swift@feat/swift-6
+        uses: swift-actions/setup-swift@v2
         with:
           swift-version: ${{ matrix.swift }}
       - name: Confirm Swift version
