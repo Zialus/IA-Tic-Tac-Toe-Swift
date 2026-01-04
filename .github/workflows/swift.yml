@@ -16,13 +16,13 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-22.04, ubuntu-24.04, macos-13, macos-14, macos-15]
-        swift: ["6.1"]
+        swift: ["6.2"]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Swift
-        uses: swift-actions/setup-swift@v2
+        uses: swift-actions/setup-swift@v3
         with:
           swift-version: ${{ matrix.swift }}
       - name: Confirm Swift version
